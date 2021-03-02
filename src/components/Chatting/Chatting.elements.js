@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 export const Chat = styled.div`
-    background: black;
+    background: white;
     height: 600px;
     display: flex;
     flex-direction: column;
@@ -16,9 +16,9 @@ export const Chat = styled.div`
 
 export const ChattingContainer = styled.div`
     background: white;
+
     display: flex;
     flex-direction: column;
-
     justify-content: space-between; 
     height: 400px;
     width : 270px;
@@ -30,49 +30,59 @@ export const ChattingContainer = styled.div`
 `;
 
 export const ChattingBar = styled.div`
-    background: #E2E2E2;
+    background: #EDF3F4;
     height: 7%;
     font-family:"굴림";
     width: 100%;
     padding-left: 10px;
-    border:1px solid #E2E2E2;
+    border:1px solid #EDF3F4;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
      
 `;
 
+export const MessageSendingContainer = styled.div`
+    background: white;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 10px;
+    border:1px solid white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    overflow-y:scroll;
+`
+
 export const ChattingMessageContainer = styled.div`
     background: #FFF;
     display: flex;
     flex-direction: row;
-    height: 10%;
+    height: 13%;
     width: 100%;
-    border:1px solid #E2E2E2;
+    border:1px solid #EDF3F4;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 `;
 
 //메시지 치는 창
-export const ChattingMessageBar = styled.div`
+export const ChattingMessageBar = styled.input`
     background: #FFF;
     height: 100%;
     width: 100%;
     border-radius: 10px;
- 
+    border:1px solid #FFF;
 `;
 
 export const ChattingMessageButton = styled.button`
-    background: #5433FF;
-    border:1px solid #5433FF;
+    background: #0288D1;
+    border:1px solid #5433FF; 
     margin: 3px;    
     height: 80%;
     width: 20   %;
     border-radius: 10px;
     border-radius: 10px;
 `;
-
-
-
 
 
 

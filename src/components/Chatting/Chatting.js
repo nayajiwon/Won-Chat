@@ -1,5 +1,6 @@
-
+/*
 import React, {useState} from 'react';
+
 import {
     ChattingContainer, 
     Chat, 
@@ -7,26 +8,74 @@ import {
     ChattingMessageContainer, 
     ChattingMessageBar,
     ChattingMessageButton
-} from './Chatting.elements'
+} from './Chatting.elements';
 
+import {Message} from './Message';
 
 const Chatting = () => {
     return (
         <div>
             <Chat>
-                <ChattingContainer>
+                <ChattingContainer >
                     <ChattingBar>Won Chat</ChattingBar>
-                    <ChattingMessageContainer>
-                        <ChattingMessageBar>
-                        </ChattingMessageBar>
-                        <ChattingMessageButton>
-                            send
-                        </ChattingMessageButton>
-                    </ChattingMessageContainer>
+                    <Message />
                 </ChattingContainer>
             </Chat>
         </div>
     );
 }
 
+export default Chatting; 
+*/
+import React, { useState } from 'react'
+import {
+    ChattingContainer, 
+    Chat, 
+    ChattingBar, 
+    ChattingMessageContainer, 
+    ChattingMessageBar,
+    ChattingMessageButton,
+    MessageSendingContainer
+} from './Chatting.elements'
+
+import {
+    Message
+}from './Message'
+
+import {
+    MessageBoxMe,
+    MessageBoxYou
+} from './Message.elements'
+
+export const Chatting = () => {
+    const [buttonclicked, setButtonclicked] = useState(0); 
+    const [messageWritten, setMessageWritten] = useState(0);   
+    
+    //초기화
+ 
+    const [newMsg, setNewMsg] = useState([])
+    console.log(newMsg)
+ 
+    return (
+        <div>
+            <Chat>
+                <ChattingContainer>
+                    <ChattingBar>Won Chat</ChattingBar>                   
+
+                    <MessageSendingContainer>
+                        <div style ={{clear:"both"}}>                    
+
+                        {newMsg.map((msg)=>(
+                            <MessageBoxMe>{msg}</MessageBoxMe>
+                        ))}
+                        </div>  
+
+                    </MessageSendingContainer>
+                    <Message setMessage = {setNewMsg}></Message>                   
+                </ChattingContainer>
+            </Chat>
+        </div>
+    );
+
+};
 export default Chatting; 
