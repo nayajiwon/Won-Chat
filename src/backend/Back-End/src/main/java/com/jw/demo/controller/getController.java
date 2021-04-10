@@ -1,11 +1,31 @@
 package com.jw.demo.controller;
 
 import com.jw.demo.model.SearchParam;
+import com.sun.jndi.toolkit.url.Uri;
+import com.sun.xml.internal.xsom.impl.scd.Iterators;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.view.RedirectView;
+
+import java.net.URI;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/")
 public class getController {
+
+
+    @Autowired
+    OauthProperties oauthProperties;
 
     /*
     getMethod : url접근, parameter 사용 가능, 캐시를 생성하기 때문에 효율적으로 접근 가능함.
@@ -21,9 +41,9 @@ public class getController {
         //파라미터값은 전역변수로 선언하는 것이 좋다.
         System.out.println("id : "+id);
         System.out.println("pass : "+password);
-
         return id+password;
     }
+
 
     //객체로 뺄 수도 있음. 객체는 getter setter형태임.
     @GetMapping("/getMultiParameter")
@@ -38,4 +58,5 @@ public class getController {
         //서블릿에서는 직접 json라이브러리를 통해 변형해줬지만, 스프링부트에서는 자동으로 만들어줌.
         return searchParam;
     }
+
 }

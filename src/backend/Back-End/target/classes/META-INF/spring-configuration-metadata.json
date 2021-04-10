@@ -1,0 +1,42 @@
+{
+  "groups": [
+    {
+      "name": "spring.security.oauth2.client.registration.naver",
+      "type": "com.jw.demo.controller.OauthProperties",
+      "sourceType": "com.jw.demo.controller.OauthProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "spring.security.oauth2.client.registration.naver.authorization-grant-type",
+      "type": "java.lang.String",
+      "sourceType": "com.jw.demo.controller.OauthProperties"
+    },
+    {
+      "name": "spring.security.oauth2.client.registration.naver.client-id",
+      "type": "java.lang.String",
+      "sourceType": "com.jw.demo.controller.OauthProperties"
+    },
+    {
+      "name": "spring.security.oauth2.client.registration.naver.client-name",
+      "type": "java.lang.String",
+      "sourceType": "com.jw.demo.controller.OauthProperties"
+    },
+    {
+      "name": "spring.security.oauth2.client.registration.naver.client-secret",
+      "type": "java.lang.String",
+      "sourceType": "com.jw.demo.controller.OauthProperties"
+    },
+    {
+      "name": "spring.security.oauth2.client.registration.naver.redirect-uri",
+      "type": "java.lang.String",
+      "sourceType": "com.jw.demo.controller.OauthProperties"
+    },
+    {
+      "name": "spring.security.oauth2.client.registration.naver.scope",
+      "type": "java.lang.String",
+      "sourceType": "com.jw.demo.controller.OauthProperties"
+    }
+  ],
+  "hints": []
+}

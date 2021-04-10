@@ -1,6 +1,8 @@
 package com.jw.demo.repository;
 
+import com.jw.demo.controller.OauthProperties;
 import com.jw.demo.model.entity.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,6 +12,7 @@ repository를 사용하면 따로 쿼리문을 작성하지 않아도 기본적�
  */
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> { //<entity, primary key 의 타입>
+
 
 
 }
