@@ -17,18 +17,11 @@ public class GetNaverLoginMenu{
 
     //http 말고 responseEntity쓰면 http 과정 대신 할 수 있대.
     //꼭 해보기
-    public StringBuffer httpConnectwithAPI(String apiUrl){
+    public StringBuffer httpConnectwithAPI(int responseCode, HttpURLConnection con){
         StringBuffer httpResult = new StringBuffer();
         httpResult.append("");
-        System.out.println(apiUrl);
-        if(oauthProperties.getClientId()!=null)
-            System.out.println(":::::::: "+oauthProperties.getClientId());
 
         try {
-            URL url = new URL(apiUrl);
-            HttpURLConnection con = (HttpURLConnection)url.openConnection();
-            con.setRequestMethod("GET");
-            int responseCode = con.getResponseCode();
             BufferedReader br;
             System.out.print("responseCode="+responseCode);
             if(responseCode==200) { // 정상 호출
@@ -52,49 +45,34 @@ public class GetNaverLoginMenu{
         return httpResult;
     }
 
-    public String httpUserAccessConnect(String access_Token) {
-        //요청하는 클라이언트마다 가진 정보가 다를 수 있기에 HashMap타입으로 선언
-        HashMap<String, Object> naverUserInfo = new HashMap<>();
-        String reqURL = "https://openapi.naver.com/v1/nid/me";
-        try {
-            URL url = new URL(reqURL);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("POST");
-            //요청에 필요한 Header에 포함될 내용
-            conn.setRequestProperty("Authorization", "Bearer " + access_Token);
-            int responseCode = conn.getResponseCode();
-            if (responseCode == 200) {
-                BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                String line = "";
-                String result = "";
-                while ((line = br.readLine()) != null) {
-                    result += line;
-                    System.out.println(line);
-                }
-            }
-
-        }catch (IOException e) { e.printStackTrace(); }
-
-        return "aa";
-    }
-
-    public void requestUrlforNaverLogin(String apiUrl){
+    public StringBuffer requestUrlforNaverLogin(String apiUrl){
+        StringBuffer ERROR = new StringBuffer();
         try {
             URL url = new URL(apiUrl);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
             int responseCode = con.getResponseCode();
+
+            return httpConnectwithAPI(responseCode, con);
         }catch (IOException e) { e.printStackTrace(); }
+
+        return ERROR.append("error");
     }
 
-    public void requestUrlforUserInfo(String access_Token){
+    public StringBuffer requestUrlforUserInfo(String apiUrl, String access_Token){
+        StringBuffer ERROR = new StringBuffer();
+
         try {
-            String reqURL = "https://openapi.naver.com/v1/nid/me";
-            URL url = new URL(reqURL);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("POST");
+            URL url = new URL(apiUrl);
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestMethod("POST");
             //요청에 필요한 Header에 포함될 내용
-            conn.setRequestProperty("Authorization", "Bearer " + access_Token);
+            con.setRequestProperty("Authorization", "Bearer " + access_Token);
+            int responseCode = con.getResponseCode();
+
+            return httpConnectwithAPI(responseCode, con);
         }catch (IOException e) { e.printStackTrace(); }
+
+        return ERROR.append("error");
     }
 }

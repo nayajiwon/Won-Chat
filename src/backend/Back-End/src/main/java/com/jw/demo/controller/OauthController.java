@@ -17,15 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.view.RedirectView;
 import org.springframework.web.util.UriComponentsBuilder;
-import sun.net.www.http.HttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
-import org.springframework.web.client.RestTemplate;
 
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URL;
 import java.nio.charset.Charset;
@@ -82,7 +74,7 @@ public class OauthController {
 
         //로그인 메뉴를 네아로api로 얻기 위한 http 통신
         GetNaverLoginMenu getNaverLoginMenu = new GetNaverLoginMenu();
-        getNaverLoginMenu.httpConnectwithAPI(loginUrl);
+        getNaverLoginMenu.requestUrlforNaverLogin(NAVER_ACCESS_TOKEN_BASE_URL);
         return new RedirectView(loginUrl);
     }
 
@@ -113,7 +105,7 @@ public class OauthController {
         //http통신을 통해 access_token정보를 포함한 json 형식 return
         GetNaverLoginMenu getNaverLoginMenu = new GetNaverLoginMenu();
         //json을 stringBuffer형태로 바꿈
-        GetAccessTokenURIRes.append(getNaverLoginMenu.httpConnectwithAPI(toGetAccessTokenURI));
+        GetAccessTokenURIRes.append(getNaverLoginMenu.requestUrlforNaverLogin(toGetAccessTokenURI));
         //stringBuffer를 string형태로 바꿈
         String accessRes = GetAccessTokenURIRes.toString();
 
@@ -124,7 +116,7 @@ public class OauthController {
         Object access_token = jsonObject.get("access_token");
 
         //access_token 을 사용해 api 생성후 사용자 정보를 가져옴
-        getNaverLoginMenu.httpUserAccessConnect(access_token.toString());
+        getNaverLoginMenu.requestUrlforUserInfo(NAVER_ACCESS_API_BASE_URL, access_token.toString());
 
         return;
 
