@@ -1,5 +1,9 @@
 package com.jw.demo.controller;
 import com.jw.demo.model.SearchParam;
+import com.jw.demo.model.entity.User;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

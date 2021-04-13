@@ -33,13 +33,17 @@ public class UserRepositoryTest extends DemoApplication {
 
         /*주의 : primary key 에 auto increment표시가 돼있지 않으면 에러 날 수 있음!!
         * */
+/*
         User user = new User();
+        user.setOauth_from("jw");
         user.setLocation("seoul");
         user.setUserName("Jws");
+        user.setPassword("111");
         user.setPhoneNumber("01085442051");
-        User newUser = userRepository.save(user);
+        User newUser = userRepository.save(user);*/
         return;
     }
+
 
     @Test
     @Transactional
@@ -62,8 +66,8 @@ public class UserRepositoryTest extends DemoApplication {
             /*** selectUser.setUser"Id();
              * pk는 update 하지 말 것!! 다른 pk가 없뎃 될수도!!!
              * **/
-            selectUser.setUserName(LocalDateTime.now().toString());
-            selectUser.setLocation("idw");
+            //selectUser.setUserName(LocalDateTime.now().toString());
+            //selectUser.setLocation("idw");
 
             userRepository.save(selectUser);
         });

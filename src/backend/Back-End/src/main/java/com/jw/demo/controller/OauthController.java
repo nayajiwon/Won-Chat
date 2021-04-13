@@ -23,14 +23,12 @@ import java.net.URL;
 import java.nio.charset.Charset;
 
 /***
- *
- /**
  *         String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
  *         apiURL += "&client_id=" + oauthProperties.getClientId();
  *         apiURL += "&redirect_uri=" + oauthProperties.getRedirectUri();
  *         apiURL += "&state=" + 110;
  *
- * **/
+ ***/
 
 @RestController
 @RequestMapping("/login")
