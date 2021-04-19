@@ -1,6 +1,6 @@
 package com.jw.demo.mysqlcontroller;
 
-import com.jw.demo.controller.dto.NaverUserDto;
+import com.jw.demo.dto.NaverUserDto;
 import com.jw.demo.repository.UserRepository;
 import com.jw.demo.service.NaverApiService;
 import lombok.AllArgsConstructor;
@@ -16,9 +16,6 @@ public class UserController {
 
     @Autowired
     private NaverApiService naverApiService;
-
-    @Autowired
-    private UserRepository userRepository;
 
     //@RequestBody : 요청받은 html형태의 문서의 body내용으로 자바 객체로 바꿔줌
     //@ResponseBody : @RestController 사용시에 자동으로 자바 객체로 바꿔주기 때문에 @ResponseBody 사용할 필요 없음

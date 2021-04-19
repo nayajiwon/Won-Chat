@@ -1,26 +1,22 @@
 package com.jw.demo.controller;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.CloseableHttpClient;
+import com.jw.demo.dao.SessionDao;
+import com.jw.demo.dto.NaverUserDto;
+import com.jw.demo.service.LoginServiceImpl;
+import com.jw.demo.service.MemberService;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.*;
-import org.springframework.http.ResponseEntity;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.view.RedirectView;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.net.URI;
-import java.net.URL;
-import java.nio.charset.Charset;
+import java.util.Optional;
 
 /***
  *         String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
@@ -41,38 +37,24 @@ public class OauthController {
      * 4) 접근토큰을 통해 사용자 정보 받는 api 호출
      */
 
-    //.properties 파일에 있는 정보 가져오기, 이렇게 해도 되는지 모르겠음
     @Autowired
-    OauthProperties oauthProperties;
+    MemberService memberService;
 
-    String NAVER_OAUTH_BASE_URL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
-    String NAVER_ACCESS_TOKEN_BASE_URL = "https://nid.naver.com/oauth2.0/token";
-    String NAVER_ACCESS_API_BASE_URL = "https://openapi.naver.com/v1/nid/me";
+    @Autowired
+    LoginServiceImpl loginServiceImpl;
+
 
     /***
      * 네이버 로그인 메뉴로 리다이렉트
-     *     http://localhost:8080/login/naver/menu*
+     *     http://localhost:8080/login/naver/menu
      */
+
+
     @GetMapping("/naver/menu")
     public RedirectView getNaverLoginScreen(){
-        String loginUrl;
 
-        //url의 쿼리문을 key, value 형식으로 url 저장
-        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        queryParams.add("client_id", oauthProperties.getClientId());
-        queryParams.add("redirect_uri", oauthProperties.getRedirectUri());
-        queryParams.add("state", "110");
+        String loginUrl = loginServiceImpl.requestNaverLoginScreenUrl();
 
-        //UriComponentsBuilder : 여러개의 파라미터들을 하나로 연결하여 uri 형태로 만들어줌
-        URI uri = UriComponentsBuilder.fromUriString(NAVER_OAUTH_BASE_URL)
-                .queryParams(queryParams)
-                .build().encode()
-                .toUri();
-        loginUrl = uri.toString();
-
-        //로그인 메뉴를 네아로api로 얻기 위한 http 통신
-        GetNaverLoginMenu getNaverLoginMenu = new GetNaverLoginMenu();
-        getNaverLoginMenu.requestUrlforNaverLogin(NAVER_ACCESS_TOKEN_BASE_URL);
         return new RedirectView(loginUrl);
     }
 
@@ -81,40 +63,41 @@ public class OauthController {
      * 주어진 권한코드와 상태코드를 사용해 api 호출 -> access_token받아옴
      */
     @GetMapping("/oauth2/code/naver")
-    public void getNaverCallBack(@RequestParam(value="code") String authCode, @RequestParam(value="state") String state) throws ParseException {
+    public void getNaverCallBack(HttpServletRequest http,  @RequestParam(value="code") String authCode, @RequestParam(value="state") String state) throws ParseException {
 
-        String toGetAccessTokenURI;
-        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        queryParams.add("grant_type", "authorization_code");
-        queryParams.add("client_id", oauthProperties.getClientId());
-        queryParams.add("client_secret", oauthProperties.getClientSecret());
-        queryParams.add("code", authCode);
-        queryParams.add("state", "110");
 
-        URI uri = UriComponentsBuilder.fromUriString(NAVER_ACCESS_TOKEN_BASE_URL)
-                .queryParams(queryParams)
-                .build().encode()
-                .toUri();
+        //getNaverLoginMenu.requestUrlforNaverLogin("http://nid.naver.com/nidlogin.logout");
+        String ID, EMAIL;
+        NaverUserDto user = loginServiceImpl.requestNaverUserAccessToken(authCode, state);
+        if(user == null){
+            System.out.print("Error Handling 해주기");
+            return; //error page로 리다이렉트 해줄것
+        }
+        ID = user.getId();
+        EMAIL = user.getEmail();
+        HttpSession session = http.getSession();
 
-        toGetAccessTokenURI = uri.toString();
+        //회원가입이 됐다면 user dto 객체 리턴
+        NaverUserDto memberId = memberService.getUserbyId(ID);
 
-        StringBuffer GetAccessTokenURIRes= new StringBuffer();
+        //회원가입이 되지 않았다면 회원가입 창으로 이동 -> 회원가입 성공시 세션 제공, 거부시 리턴
+        if(memberId == null){
+            /**
+             * 회원가입 하는 창으로 이동!!
+             */
+            System.out.println(ID + "를 mysql에 insert 할 것! ");
 
-        //http통신을 통해 access_token정보를 포함한 json 형식 return
-        GetNaverLoginMenu getNaverLoginMenu = new GetNaverLoginMenu();
-        //json을 stringBuffer형태로 바꿈
-        GetAccessTokenURIRes.append(getNaverLoginMenu.requestUrlforNaverLogin(toGetAccessTokenURI));
-        //stringBuffer를 string형태로 바꿈
-        String accessRes = GetAccessTokenURIRes.toString();
-
-        System.out.println(accessRes);
-        //Return 받은 json형식 중에서 (key : access_token, value : ?) 값을 얻음
-        JSONParser jsonParser = new JSONParser();
-        JSONObject jsonObject = (JSONObject) jsonParser.parse(accessRes);
-        Object access_token = jsonObject.get("access_token");
-
-        //access_token 을 사용해 api 생성후 사용자 정보를 가져옴
-        getNaverLoginMenu.requestUrlforUserInfo(NAVER_ACCESS_API_BASE_URL, access_token.toString());
+            //N_42369262
+            memberService.InsertUser(ID, EMAIL, ""); //회원가입 한다고 하면 db에 삽입
+            System.out.println("없는 사용자 입니다");
+        }
+        else{ //회원가입 돼있을 때
+            System.out.println("회원입니다. ");
+            SessionDao sessionDao = SessionDao.builder()
+                    .Id(ID) //고유의 id로 세션값 부여
+                    .build();
+            http.setAttribute("userSession",sessionDao); //클라이언트에게 세션 제공
+        }
 
         return;
 

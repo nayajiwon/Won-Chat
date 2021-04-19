@@ -29,20 +29,27 @@ public class User{
     private String location;
     private String phoneNumber;
     private String oauth_from;
-
+    private String nickname;
+    private String email;
+    private String id;
 
     @Builder
-    public User( String userName,
+    public User( String id,
+                 String userName,
              String password,
              String location,
              String phoneNumber,
-             String oauth_from) {
+             String oauth_from,
+                 String nickname,
+                 String email) {
 
+        this.id = id;
         this.userName = userName;
         this.password = password;
         this.location = location;
         this.phoneNumber = phoneNumber;
         this.oauth_from = oauth_from;
-
+        this.nickname = nickname;
+        this.email = email;
     }
 }

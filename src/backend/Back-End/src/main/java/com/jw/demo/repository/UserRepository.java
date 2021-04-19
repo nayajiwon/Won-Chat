@@ -4,6 +4,7 @@ import com.jw.demo.controller.OauthProperties;
 import com.jw.demo.model.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 /*
@@ -12,9 +13,11 @@ repository를 사용하면 따로 쿼리문을 작성하지 않아도 기본적�
  //create, read(select), update, delete 사용 가능.
  */
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
-    //<entity클래스, primary key 의 타입>
+public interface UserRepository extends JpaRepository<User, Long> { //<entity클래스, primary key 의 타입>
 
+    //findall, findbyId 등 JpaRepository 인터페이스에서 기본적으로 제공하는 함수 이외에 사용자가 직접 정의한 쿼리를 쓰는 방법
+    @Query(value = "Select * from user U Where U.id = ?1 ", nativeQuery = true)
+    User findbyUserId(String Id);
 
 
 }
