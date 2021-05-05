@@ -5,28 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd93f281-1ed8-4d1c-8daf-4f459aa02a4a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/.gradle/2.10/taskArtifacts/cache.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/.gradle/2.10/taskArtifacts/cache.properties.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/.gradle/2.10/taskArtifacts/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/.gradle/2.10/taskArtifacts/fileSnapshots.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/.gradle/2.10/taskArtifacts/outputFileStates.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/.gradle/2.10/taskArtifacts/taskArtifacts.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/DemoApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/configuration/interceptorConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/controller/OauthController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/controller/OauthProperties.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/controller/ResponseEntityExController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/controller/getController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/dao/SessionDao$SessionDaoBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/dao/SessionDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/dao/UserDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/dao/UserDaoInterface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/dto/NaverUserDto$NaverUserDtoBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/dto/NaverUserDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/interceptor/SessionInterceptor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/model/SearchParam.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/model/entity/Message.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/model/entity/Professor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/model/entity/Room.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/model/entity/RoomRelation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/model/entity/User$UserBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/model/entity/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/mysqlcontroller/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/repository/ProfessorRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/repository/UserRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/service/LoginService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/service/LoginServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/service/MemberService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/service/MemberServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/service/NaverApiService.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +70,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="yarn" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
@@ -80,7 +93,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1620223586132</updated>
-      <workItem from="1620223589733" duration="124000" />
+      <workItem from="1620223589733" duration="563000" />
     </task>
     <servers />
   </component>
