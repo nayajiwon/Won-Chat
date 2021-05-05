@@ -5,40 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd93f281-1ed8-4d1c-8daf-4f459aa02a4a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/DemoApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/configuration/interceptorConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/controller/OauthController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/controller/OauthProperties.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/controller/ResponseEntityExController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/controller/getController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/dao/SessionDao$SessionDaoBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/dao/SessionDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/dao/UserDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/dao/UserDaoInterface.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/dto/NaverUserDto$NaverUserDtoBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/dto/NaverUserDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/interceptor/SessionInterceptor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/model/SearchParam.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/model/entity/Message.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/model/entity/Professor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/model/entity/Room.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/model/entity/RoomRelation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/model/entity/User$UserBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/model/entity/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/mysqlcontroller/UserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/repository/ProfessorRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/repository/UserRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/service/LoginService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/service/LoginServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/service/MemberService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/service/MemberServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/target/classes/com/jw/demo/service/NaverApiService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +61,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1620223586132</updated>
-      <workItem from="1620223589733" duration="563000" />
+      <workItem from="1620223589733" duration="958000" />
     </task>
     <servers />
   </component>
