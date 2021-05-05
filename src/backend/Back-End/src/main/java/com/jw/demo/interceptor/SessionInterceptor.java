@@ -39,7 +39,6 @@ public class SessionInterceptor implements HandlerInterceptor {
         HttpSession session = request.getSession(); //요청받은 클라이언트의 세션을 가져와
         SessionDao userSession = (SessionDao) session.getAttribute("userId"); //key : "userId"로 검색, 세션을 부여받은 적이 없으면 null
 
-
         if(userSession == null){ //현재 클라이언트가 로그인 하여 서버로부터 세션을 부여받은 상태가 아님 == 비정상적인 접근
             System.out.println("preHandle ::  서버로부터 세션을 부여받은 상태가 아님");
             response.sendRedirect("/");

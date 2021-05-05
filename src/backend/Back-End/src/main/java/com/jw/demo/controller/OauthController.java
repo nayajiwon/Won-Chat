@@ -3,20 +3,12 @@ import com.jw.demo.dao.SessionDao;
 import com.jw.demo.dto.NaverUserDto;
 import com.jw.demo.service.LoginServiceImpl;
 import com.jw.demo.service.MemberService;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
-import org.springframework.web.util.UriComponentsBuilder;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.net.URI;
-import java.util.Optional;
 
 /***
  *         String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
@@ -27,7 +19,7 @@ import java.util.Optional;
  ***/
 
 @RestController
-@RequestMapping("/login")
+//@RequestMapping("/login")
 public class OauthController {
     //네이버 로그인 api 순서
     /**
@@ -46,13 +38,16 @@ public class OauthController {
 
     /***
      * 네이버 로그인 메뉴로 리다이렉트
-     *     http://localhost:8080/login/naver/menu
+     *     http://localhost:8080/api/login/naver/menu
+     *     http://172.30.1.48:8080/api/login/naver/menu
+     *
+     *
      */
 
 
-    @GetMapping("/naver/menu")
+    @GetMapping("api/login/naver/menu")
     public RedirectView getNaverLoginScreen(){
-
+        System.out.println("api/login/naver/menu 출력");
         String loginUrl = loginServiceImpl.requestNaverLoginScreenUrl();
 
         return new RedirectView(loginUrl);
@@ -62,12 +57,13 @@ public class OauthController {
      * 네이버 로그인 완료시 자동으로 요청되는 call back url
      * 주어진 권한코드와 상태코드를 사용해 api 호출 -> access_token받아옴
      */
-    @GetMapping("/oauth2/code/naver")
+    //로그아웃 url : http://nid.naver.com/nidlogin.logout
+    //http://localhost:8080/login/oauth2/code/naver
+    @GetMapping("login/oauth2/code/naver")
     public void getNaverCallBack(HttpServletRequest http,  @RequestParam(value="code") String authCode, @RequestParam(value="state") String state) throws ParseException {
 
-
-        //getNaverLoginMenu.requestUrlforNaverLogin("http://nid.naver.com/nidlogin.logout");
         String ID, EMAIL;
+        //네이버api로 부터 인증된 사용자 access_token로 user정보 가져옴
         NaverUserDto user = loginServiceImpl.requestNaverUserAccessToken(authCode, state);
         if(user == null){
             System.out.print("Error Handling 해주기");
@@ -96,10 +92,9 @@ public class OauthController {
             SessionDao sessionDao = SessionDao.builder()
                     .Id(ID) //고유의 id로 세션값 부여
                     .build();
+
             http.setAttribute("userSession",sessionDao); //클라이언트에게 세션 제공
         }
-
         return;
-
     }
 }

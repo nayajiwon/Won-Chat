@@ -1,9 +1,5 @@
 package com.jw.demo.controller;
 import com.jw.demo.model.SearchParam;
-import com.jw.demo.model.entity.User;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,8 +17,15 @@ public class getController {
     //parameter 못받음.
     @RequestMapping(method = RequestMethod.GET, path = "/getMethod")
     public String getRequest(){
+
+        System.out.println("is getMethod!!");
         return "Hi, getMethod";
     }
+
+    @GetMapping("/demo/hello") public String HelloWorld(){
+        System.out.println("hello world~~");
+        return "Hello World!! \n"; }
+
 
     @GetMapping("/getParameter")
     public String getParameter(@RequestParam String id, @RequestParam String password){
