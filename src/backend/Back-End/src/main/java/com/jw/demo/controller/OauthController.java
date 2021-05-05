@@ -45,7 +45,7 @@ public class OauthController {
      */
 
 
-    @GetMapping("api/login/naver/menu")
+    @GetMapping("/api/login/naver/menu")
     public RedirectView getNaverLoginScreen(){
         System.out.println("api/login/naver/menu 출력");
         String loginUrl = loginServiceImpl.requestNaverLoginScreenUrl();
@@ -59,7 +59,7 @@ public class OauthController {
      */
     //로그아웃 url : http://nid.naver.com/nidlogin.logout
     //http://localhost:8080/login/oauth2/code/naver
-    @GetMapping("login/oauth2/code/naver")
+    @GetMapping("/api/login/oauth2/code/naver")
     public void getNaverCallBack(HttpServletRequest http,  @RequestParam(value="code") String authCode, @RequestParam(value="state") String state) throws ParseException {
 
         String ID, EMAIL;
