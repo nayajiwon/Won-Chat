@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
  *         apiURL += "&state=" + 110;
  *
  ***/
-
+@CrossOrigin(origins = "https://nid.naver.com")
 @RestController
 //@RequestMapping("/login")
 public class OauthController {
