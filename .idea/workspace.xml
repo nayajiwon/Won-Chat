@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dd93f281-1ed8-4d1c-8daf-4f459aa02a4a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Back-End/src/main/java/com/jw/demo/controller/OauthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Back-End/src/main/java/com/jw/demo/controller/OauthController.java" afterDir="false" />
-    </list>
+    <list default="true" id="dd93f281-1ed8-4d1c-8daf-4f459aa02a4a" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,7 +64,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1620223586132</updated>
-      <workItem from="1620223589733" duration="1801000" />
+      <workItem from="1620223589733" duration="2584000" />
     </task>
     <servers />
   </component>
