@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -18,7 +19,7 @@ import java.net.URI;
 import java.net.URL;
 
 @Service
-public class LoginServiceImpl implements LoginService {
+public class LoginServiceImplJiwonLocal implements LoginService {
 
     @Autowired
     OauthProperties oauthProperties;

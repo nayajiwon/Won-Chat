@@ -6,7 +6,7 @@ import java.net.HttpURLConnection;
 
 
 @Service
-public interface LoginService {
+public interface LoginServiceJiwonLocal {
     public StringBuffer httpConnectwithAPI(int responseCode, HttpURLConnection con);
     public StringBuffer requestUrlforNaverLogin(String apiUrl);
     public StringBuffer requestUrlforUserInfo(String apiUrl, String access_Token);

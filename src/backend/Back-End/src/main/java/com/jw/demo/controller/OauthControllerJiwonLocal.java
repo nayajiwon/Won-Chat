@@ -22,7 +22,7 @@ import java.io.IOException;
 
 @RestController
 //@RequestMapping("/login")
-public class OauthController {
+public class OauthControllerJiwonLocal {
     //네이버 로그인 api 순서
     /**
      * 1) 네이버 로그인 창을 통해 로그인 함
@@ -46,7 +46,7 @@ public class OauthController {
      *
      */
 
-/*
+
     @GetMapping("api/login/naver/menu")
     public RedirectView getNaverLoginScreen(){
         System.out.println("api/login/naver/menu 출력");
@@ -55,7 +55,6 @@ public class OauthController {
 
         return new RedirectView(loginUrl);
     }
-*/
 
     @GetMapping("/api/login/naver/menu")
     //public RedirectView getNaverLoginScreen(){

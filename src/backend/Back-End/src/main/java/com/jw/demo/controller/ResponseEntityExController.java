@@ -16,7 +16,6 @@ public class ResponseEntityExController {
         return new ResponseEntity<>("success", HttpStatus.OK);
     }
 
-
     @GetMapping("/onlystatus")
     public ResponseEntity onlyStatus(){
         return new ResponseEntity(HttpStatus.OK);
