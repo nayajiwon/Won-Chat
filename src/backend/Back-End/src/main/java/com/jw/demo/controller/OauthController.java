@@ -1,3 +1,4 @@
+
 package com.jw.demo.controller;
 import com.jw.demo.dao.SessionDao;
 import com.jw.demo.dto.NaverUserDto;
@@ -50,20 +51,19 @@ public class OauthController {
     public String getNaverLoginScreen(){
         System.out.println("api/login/naver/menu 출력");
         String loginUrl = loginServiceImpl.requestNaverLoginScreenUrl();
-
         //return new RedirectView(loginUrl);
-        return "good";  
+        return "good";
     }
 */
 
     @GetMapping("/api/login/naver/menu")
     //public RedirectView getNaverLoginScreen(){
     public void getNaverLoginScreen(HttpServletResponse httpServletResponse){
-       
+
         System.out.println(" 새로운 리다이렉트 출력");
         String loginUrl = loginServiceImpl.requestNaverLoginScreenUrl();
-	httpServletResponse.sendRedirect(loginUrl);
-        return; 
+        httpServletResponse.sendRedirect(loginUrl);
+        return;
     }
 
 
