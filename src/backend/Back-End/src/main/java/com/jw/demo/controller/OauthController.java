@@ -17,7 +17,6 @@ import javax.servlet.http.HttpSession;
  *         apiURL += "&state=" + 110;
  *
  ***/
-@CrossOrigin(origins = "https://nid.naver.com")
 @RestController
 //@RequestMapping("/login")
 public class OauthController {
@@ -44,21 +43,36 @@ public class OauthController {
      *
      */
 
-
+/*
+    @CrossOrigin(origins = "https://nid.naver.com")
     @GetMapping("/api/login/naver/menu")
-    public RedirectView getNaverLoginScreen(){
+    //public RedirectView getNaverLoginScreen(){
+    public String getNaverLoginScreen(){
         System.out.println("api/login/naver/menu 출력");
         String loginUrl = loginServiceImpl.requestNaverLoginScreenUrl();
 
-        return new RedirectView(loginUrl);
+        //return new RedirectView(loginUrl);
+        return "good";  
     }
+*/
+
+    @GetMapping("/api/login/naver/menu")
+    //public RedirectView getNaverLoginScreen(){
+    public void getNaverLoginScreen(HttpServletResponse httpServletResponse){
+       
+        System.out.println(" 새로운 리다이렉트 출력");
+        String loginUrl = loginServiceImpl.requestNaverLoginScreenUrl();
+	httpServletResponse.sendRedirect(loginUrl);
+        return; 
+    }
+
 
     /***
      * 네이버 로그인 완료시 자동으로 요청되는 call back url
      * 주어진 권한코드와 상태코드를 사용해 api 호출 -> access_token받아옴
      */
     //로그아웃 url : http://nid.naver.com/nidlogin.logout
-    //http://localhost:8080/login/oauth2/code/naver
+    //http://localhost:8080/login/oauth2/codenaver
     @GetMapping("/api/login/oauth2/code/naver")
     public void getNaverCallBack(HttpServletRequest http,  @RequestParam(value="code") String authCode, @RequestParam(value="state") String state) throws ParseException {
 
