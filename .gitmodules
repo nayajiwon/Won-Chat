@@ -1,3 +1,6 @@
 [submodule "src/backend/Back-End/src/main/resources/wonchat_private"]
 	path = src/backend/Back-End/src/main/resources/wonchat_private
 	url = https://github.com/haraorum/wonchat_private
+[submodule "src/backend/src/main/resources/wonchat_private"]
+	path = src/backend/src/main/resources/wonchat_private
+	url = https://github.com/haraorum/wonchat_private
