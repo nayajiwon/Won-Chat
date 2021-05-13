@@ -53,13 +53,22 @@ public class OauthController {
 
 
 
-    @CrossOrigin(origins = "http://49.50.160.107:3000")  //요청 자원을 허락할 origin
+    @CrossOrigin(origins = "http://49.50.160.107:80")  //요청 자원을 허락할 origin
     @GetMapping("/api/login/naver/menu")
     public RedirectView getNaverLoginScreen(){
         System.out.println("api/login/naver/menu 출력");
         String loginUrl = loginServiceImpl.requestNaverLoginScreenUrl();
 
-        return new RedirectView(loginUrl);
+        //return new RedirectView(loginUrl);
+        return new RedirectView("http://106.10.36.118:800/api/login/naver/menu/2");
+
+    }
+
+    @GetMapping("/api/login/naver/menu/2")
+    public void getNaverLoginScreenTest(){
+        System.out.println("\n\n호출이 됨\n\n");
+
+        return;
     }
 /*
     // httpServletResponse.sendRedirect
