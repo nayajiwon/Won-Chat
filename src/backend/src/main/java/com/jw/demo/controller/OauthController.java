@@ -60,8 +60,7 @@ public class OauthController {
         String loginUrl = loginServiceImpl.requestNaverLoginScreenUrl();
 
         //return new RedirectView(loginUrl);
-        return new RedirectView("http://106.10.36.118:800/api/login/naver/menu/2");
-
+        return new RedirectView("http://118.67.132.184:8080/getMethod/api/login/naver/menu/2");
     }
 
     @GetMapping("/api/login/naver/menu/2")
