@@ -5,10 +5,17 @@ import com.jw.demo.service.LoginServiceImpl;
 import com.jw.demo.service.MemberService;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 /***
  *         String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
@@ -52,7 +59,30 @@ public class OauthController {
 
         return new RedirectView(loginUrl);
     }
+/*
+    // httpServletResponse.sendRedirect
+    @GetMapping("/api/login/naver/menu")
+    public void exRedirect3(HttpServletResponse httpServletResponse) throws IOException {
+        System.out.println("api/login/naver/menu 출력-1");
+        String loginUrl = loginServiceImpl.requestNaverLoginScreenUrl();
 
+        httpServletResponse.sendRedirect(loginUrl);
+
+    }
+    // httpHeaders
+
+    @GetMapping("/api/login/naver/menu")
+    public ResponseEntity<Object> exRedirect5() throws URISyntaxException {
+        System.out.println("api/login/naver/menu 출력-2");
+        String loginUrl = loginServiceImpl.requestNaverLoginScreenUrl();
+
+        URI redirectUri = new URI(loginUrl);
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.setLocation(redirectUri);
+        return new ResponseEntity<>(httpHeaders, HttpStatus.SEE_OTHER);
+    }
+
+*/
     /***
      * 네이버 로그인 완료시 자동으로 요청되는 call back url
      * 주어진 권한코드와 상태코드를 사용해 api 호출 -> access_token받아옴
