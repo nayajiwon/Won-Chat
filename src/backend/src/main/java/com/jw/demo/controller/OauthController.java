@@ -52,6 +52,8 @@ public class OauthController {
      */
 
 
+
+    @CrossOrigin(origins = "http://49.50.160.107:3000")  //요청 자원을 허락할 origin
     @GetMapping("/api/login/naver/menu")
     public RedirectView getNaverLoginScreen(){
         System.out.println("api/login/naver/menu 출력");
