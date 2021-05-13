@@ -8,7 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.FormHttpMessageConverter;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.StringHttpMessageConverter;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.view.RedirectView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,6 +22,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.List;
 
 /***
  *         String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
@@ -57,16 +65,31 @@ public class OauthController {
     @GetMapping("/api/login/naver/menu")
     public RedirectView getNaverLoginScreen(){
         System.out.println("api/login/naver/menu 출력");
-        String loginUrl = loginServiceImpl.requestNaverLoginScreenUrl();
+        //String loginUrl = loginServiceImpl.requestNaverLoginScreenUrl();
 
         //return new RedirectView(loginUrl);
-        return new RedirectView("http://118.67.132.184:8080/getMethod/api/login/naver/menu/2");
+        return new RedirectView("http://118.67.132.184:8080/api/login/naver/menu/2");
     }
 
     @GetMapping("/api/login/naver/menu/2")
     public void getNaverLoginScreenTest(){
         System.out.println("\n\n호출이 됨\n\n");
+        String loginUrl = loginServiceImpl.requestNaverLoginScreenUrl();
 
+        List<HttpMessageConverter<?>> converters = new ArrayList<HttpMessageConverter<?>>();
+        converters.add(new FormHttpMessageConverter());
+        converters.add(new StringHttpMessageConverter());
+
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.setMessageConverters(converters);
+
+        // parameter 세팅
+        MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
+
+        // REST API 호출
+        String result = restTemplate.postForObject(loginUrl, map, String.class);
+        System.out.println("------------------ TEST 결과 ------------------");
+        System.out.println(result);
         return;
     }
 /*
