@@ -39,6 +39,11 @@ const Navbar = () => {
                                     Products
                                 </NavLinks>
                             </NavItem>
+                            <NavItem>
+                                <NavLinks to='/login'>
+                                    Login
+                                </NavLinks>
+                            </NavItem>
                         </NavMenu>
                     </NavbarContainer>
                 </Nav> 
