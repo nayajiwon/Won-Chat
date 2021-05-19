@@ -92,18 +92,34 @@ public class OauthController {
         System.out.println(result);
         return;
     }
-/*
+
     // httpServletResponse.sendRedirect
     @GetMapping("/api/login/naver/menu")
     public void exRedirect3(HttpServletResponse httpServletResponse) throws IOException {
-        System.out.println("api/login/naver/menu 출력-1");
+        System.out.println("\n\n호출이 됨\n\n");
         String loginUrl = loginServiceImpl.requestNaverLoginScreenUrl();
+
+        List<HttpMessageConverter<?>> converters = new ArrayList<HttpMessageConverter<?>>();
+        converters.add(new FormHttpMessageConverter());
+        converters.add(new StringHttpMessageConverter());
+
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.setMessageConverters(converters);
+
+        // parameter 세팅
+        MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
+
+        // REST API 호출
+        String result = restTemplate.postForObject(loginUrl, map, String.class);
+        System.out.println("------------------ TEST 결과 ------------------");
+        System.out.println(result);
+        System.out.println("api/login/naver/menu 출력-1");
 
         httpServletResponse.sendRedirect(loginUrl);
 
     }
     // httpHeaders
-
+/*
     @GetMapping("/api/login/naver/menu")
     public ResponseEntity<Object> exRedirect5() throws URISyntaxException {
         System.out.println("api/login/naver/menu 출력-2");

@@ -17,8 +17,9 @@ const Navbar = () => {
                     <NavbarContainer>
                         <NavLogo to = "/">
                             <NavIcon></NavIcon>
-                             원챗 
+                             원챗이야
                         </NavLogo>
+
                         <MobileIcon onClick = {handleClick}>
                             {click ? <FaTimes /> : <FaBars />}                 
                         </MobileIcon>
