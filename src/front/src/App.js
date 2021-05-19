@@ -2,9 +2,8 @@ import React from 'react';
 import GlobalStyle from './globalStyles'; 
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar.js';
-import Chatting from './components/Chatting/Chatting';
-import SignPage from './pages/SignPage.js';
-import JoinUsers from './pages/JoinUser.js';
+import SignUpUser from './components/SignUp/SignUpUser.js';
+import LoginUser from './components/Login/LoginUser.js';
 
 function App() {
   return (
@@ -12,10 +11,9 @@ function App() {
       <GlobalStyle/>
       <Navbar />
       <Switch>
-        <Route path ='/login' component={SignPage}/>
-        <Route path = '/join' component ={JoinUsers}/>
+        <Route path ='/login' component={LoginUser}/>
+        <Route path = '/signup' component ={SignUpUser}/>
       </Switch>
-    {/*   <Chatting></Chatting> */}
     </Router>
   );
 }
