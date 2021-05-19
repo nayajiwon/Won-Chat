@@ -1,20 +1,15 @@
-package com.jw.demo.DATO;
+package com.jw.demo.DTO;
 
 import com.jw.demo.Model.Entity.User;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-/**
- * db level과 view level을 분리하기 위해 dto클라스 생성
- * toEntity() 를 통해 db클래스인 User 클래스 초기화
- * 로직이 없고 데이터를 접근 하기 위한 변수들로만 이루어짐
- * dto == vo
- */
-@Data
-@NoArgsConstructor //파라미터가 없는 생성자를 만듦.
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserDto {
-
     private Long userId;
     private String userName;
     private String password;
@@ -25,7 +20,6 @@ public class UserDto {
     private String email;
     private String id;
 
-    //@Builder 장점: 생성자의 파라미터 명을 직관적으로 알 수 있어 효과적임
     @Builder
     public UserDto(String id, String userName, String password, String location, String phoneNumber, String oauth_from, String nickname, String email) {
         this.id = id;
@@ -59,5 +53,4 @@ public class UserDto {
 
         return user;
     }
-
 }

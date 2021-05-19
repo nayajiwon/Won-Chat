@@ -1,7 +1,7 @@
 package com.jw.demo.Service.Impl;
 
 import com.jw.demo.Properties.OauthProperties;
-import com.jw.demo.DATO.UserDto;
+import com.jw.demo.DTO.UserDto;
 import com.jw.demo.Service.NaverLoginService;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;

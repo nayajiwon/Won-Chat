@@ -1,5 +1,5 @@
 package com.jw.demo.Service;
-import com.jw.demo.DATO.UserDto;
+import com.jw.demo.DTO.UserDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
