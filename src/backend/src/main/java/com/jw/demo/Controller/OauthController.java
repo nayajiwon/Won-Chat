@@ -1,6 +1,6 @@
 package com.jw.demo.Controller;
 import com.jw.demo.DAO.SessionDao;
-import com.jw.demo.DATO.UserDto;
+import com.jw.demo.DTO.UserDto;
 import com.jw.demo.Service.Impl.NaverNaverLoginServiceImpl;
 import com.jw.demo.Service.MemberService;
 import org.json.simple.parser.ParseException;

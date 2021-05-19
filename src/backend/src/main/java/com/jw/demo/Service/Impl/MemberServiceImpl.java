@@ -1,6 +1,6 @@
 package com.jw.demo.Service.Impl;
 import com.jw.demo.DAO.UserDao;
-import com.jw.demo.DATO.UserDto;
+import com.jw.demo.DTO.UserDto;
 import com.jw.demo.Service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,7 +28,7 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public UserDto getUserbyId(String id){
-        UserDto loginUser = userDao.getUserbyId(id);
+        UserDto loginUser = userDao.getUserInfobyId(id);
         return loginUser;
     }
 

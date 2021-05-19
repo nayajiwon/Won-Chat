@@ -1,6 +1,6 @@
 package com.jw.demo.Mysqlcontroller;
 
-import com.jw.demo.DATO.UserDto;
+import com.jw.demo.DTO.UserDto;
 import com.jw.demo.Service.NaverApiService;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
