@@ -1,6 +1,8 @@
 import React, {useState } from "react";
 import {Link, Route} from 'react-router-dom';
+import Naver_Login from '../Naver_Login';
 import join from './JoinUser'
+
 function SignPage(){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -29,6 +31,7 @@ function SignPage(){
         />
         <button>Login</button>
         <Link to = {'./join'}><button>Join</button></Link>
+        <Naver_Login></Naver_Login>
       
       </>
     );

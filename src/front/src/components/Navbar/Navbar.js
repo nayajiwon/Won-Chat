@@ -29,16 +29,7 @@ const Navbar = () => {
                                     Home
                                 </NavLinks>
                             </NavItem>
-                            <NavItem>
-                                <NavLinks to='/services'>
-                                    Services
-                                </NavLinks>
-                            </NavItem>
-                            <NavItem>
-                                <NavLinks to='/products'>
-                                    Products
-                                </NavLinks>
-                            </NavItem>
+            
                             <NavItem>
                                 <NavLinks to='/login'>
                                     Login
