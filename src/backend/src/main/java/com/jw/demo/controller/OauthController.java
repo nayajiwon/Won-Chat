@@ -111,13 +111,24 @@ public class OauthController {
      * 네이버 로그인 완료시 자동으로 요청되는 call back url
      * 주어진 권한코드와 상태코드를 사용해 api 호출 -> access_token받아옴
      */
+
+    /*
+
+http://118.67.132.184/api/login/oauth2/code/naver#
+access_token=AAAAPNussNF47LGu9ztdaTlk4wOYEBSeZEeIvod47PVOnVty_iyNSYlu6JYoJFzrcVTXSnyRGpORsh7kM7cnZnnitIY
+&state=a4b590f7-8e55-4646-a958-f5665e6102c3
+&token_type=bearer
+&expires_in=3600
+     */
+
+
     //로그아웃 url : http://nid.naver.com/nidlogin.logout
     //http://localhost:8080/login/oauth2/code/naver
     @GetMapping("/api/login/oauth2/code/naver")
-    public void getNaverCallBack(HttpServletRequest http,  @RequestParam(value="code") String authCode, @RequestParam(value="state") String state) throws ParseException {
+    public void getNaverCallBack(HttpServletRequest http,  @RequestParam(value="access_token",required=false,defaultValue="") String access_token, @RequestParam(value="state",required=false,defaultValue="") String state, @RequestParam(value="token_type",required=false,defaultValue="") String token_type, @RequestParam(value="expires_in",required=false,defaultValue="") String expires_in) throws ParseException {
 
         System.out.println("call back 완료!");
-
+/*
         String ID, EMAIL;
         //네이버api로 부터 인증된 사용자 access_token로 user정보 가져옴
         NaverUserDto user = loginServiceImpl.requestNaverUserAccessToken(authCode, state);
@@ -134,9 +145,7 @@ public class OauthController {
 
         //회원가입이 되지 않았다면 회원가입 창으로 이동 -> 회원가입 성공시 세션 제공, 거부시 리턴
         if(memberId == null){
-            /**
-             * 회원가입 하는 창으로 이동!!
-             */
+
             System.out.println(ID + "를 mysql에 insert 할 것! ");
 
             //N_42369262
@@ -151,6 +160,7 @@ public class OauthController {
 
             http.setAttribute("userSession",sessionDao); //클라이언트에게 세션 제공
         }
-        return;
+        return;*/
     }
+
 }
