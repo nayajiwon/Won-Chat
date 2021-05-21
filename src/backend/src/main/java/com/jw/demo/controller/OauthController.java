@@ -32,7 +32,6 @@ import java.util.List;
  *         apiURL += "&state=" + 110;
  *
  ***/
-@CrossOrigin(origins = "https://nid.naver.com")
 @RestController
 //@RequestMapping("/login")
 public class OauthController {
@@ -69,8 +68,9 @@ public class OauthController {
 
         //return new RedirectView(loginUrl);
         //return new RedirectView("http://118.67.132.184:8080/api/login/naver/menu/2");
+        return;
     }
-
+/*
     @GetMapping("/api/login/naver/menu/2")
     public void getNaverLoginScreenTest(){
         System.out.println("\n\n호출이 됨\n\n");
@@ -92,32 +92,7 @@ public class OauthController {
         System.out.println(result);
         return;
     }
-
-    // httpServletResponse.sendRedirect
-    @GetMapping("/api/login/naver/menu")
-    public void exRedirect3(HttpServletResponse httpServletResponse) throws IOException {
-        System.out.println("\n\n호출이 됨\n\n");
-        String loginUrl = loginServiceImpl.requestNaverLoginScreenUrl();
-
-        List<HttpMessageConverter<?>> converters = new ArrayList<HttpMessageConverter<?>>();
-        converters.add(new FormHttpMessageConverter());
-        converters.add(new StringHttpMessageConverter());
-
-        RestTemplate restTemplate = new RestTemplate();
-        restTemplate.setMessageConverters(converters);
-
-        // parameter 세팅
-        MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
-
-        // REST API 호출
-        String result = restTemplate.postForObject(loginUrl, map, String.class);
-        System.out.println("------------------ TEST 결과 ------------------");
-        System.out.println(result);
-        System.out.println("api/login/naver/menu 출력-1");
-
-        httpServletResponse.sendRedirect(loginUrl);
-
-    }
+*/
     // httpHeaders
 /*
     @GetMapping("/api/login/naver/menu")
