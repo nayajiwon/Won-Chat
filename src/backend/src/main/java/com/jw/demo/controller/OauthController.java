@@ -116,6 +116,8 @@ public class OauthController {
     @GetMapping("/api/login/oauth2/code/naver")
     public void getNaverCallBack(HttpServletRequest http,  @RequestParam(value="code") String authCode, @RequestParam(value="state") String state) throws ParseException {
 
+        System.out.println("call back 완료!");
+
         String ID, EMAIL;
         //네이버api로 부터 인증된 사용자 access_token로 user정보 가져옴
         NaverUserDto user = loginServiceImpl.requestNaverUserAccessToken(authCode, state);
