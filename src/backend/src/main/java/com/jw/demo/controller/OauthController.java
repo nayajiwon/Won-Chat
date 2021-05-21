@@ -126,6 +126,7 @@ access_token=AAAAPNussNF47LGu9ztdaTlk4wOYEBSeZEeIvod47PVOnVty_iyNSYlu6JYoJFzrcVT
     //http://localhost:8080/login/oauth2/code/naver
     @GetMapping("/api/login/oauth2/code/naver")
     public void getNaverCallBack(HttpServletRequest http,  @RequestParam(value="access_token",required=false,defaultValue="") String access_token, @RequestParam(value="state",required=false,defaultValue="") String state, @RequestParam(value="token_type",required=false,defaultValue="") String token_type, @RequestParam(value="expires_in",required=false,defaultValue="") String expires_in) throws ParseException {
+        System.out.println("call back 완료!");
 
         System.out.println("call back 완료!");
 /*
