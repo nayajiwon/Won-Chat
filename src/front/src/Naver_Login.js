@@ -49,24 +49,47 @@ const Naver_Login = () => {
 export default Naver_Login; 
 */
 import React, {useState, useEffect} from 'react';
+import {useLocation} from 'react-router-dom';
 const { naver } = window;
 
 
 const Naver_Login = () => {
 
+  const location = useLocation();  //현재 머물러 있는 페이지에 대한 정보 
+
   const Login = () => {
     Naver();
-    //UserProfile();
+    UserProfile();
    }
    
-  useEffect(Login, []);
+  //useEffect(Login, []);
+  useEffect(()=>{
+    Naver();
+    UserProfile(); 
+    console.log("렌더링 체크");
+  });
+
+  const UserProfile = () => {
+    const url = window.location.href
+    console.log("지원아!! : " + url)
+    window.location.href.includes('access_token') && GetUser();
+    function GetUser() {
+
+      const location = window.location.href.split('=')[1];
+      const token = location.split('&')[0];
+      
+    }
+  };
+  
+  
+  
 
   const Naver = () => {
     //const naverLogin = new naver.LoginWithNaverId({
-    
+    console.log("NAver : ")
     const naverLogin = new naver.LoginWithNaverId({
      clientId: "F1E3fXOQGtpMKPLJ2dYB",
-     callbackUrl: "http://118.67.132.184/api/login/oauth2/code/naver",
+     callbackUrl: "http://localhost:3000/api",
       isPopup: false,
       loginButton: {color: "green", type: 1, height: 30},
       callbackHandle: true
