@@ -122,16 +122,22 @@ access_token=AAAAPNussNF47LGu9ztdaTlk4wOYEBSeZEeIvod47PVOnVty_iyNSYlu6JYoJFzrcVT
      */
 
 
+
     //로그아웃 url : http://nid.naver.com/nidlogin.logout
     //http://localhost:8080/login/oauth2/code/naver
     @GetMapping("/api/login/oauth2/code/naver")
     public void getNaverCallBack(HttpServletRequest http,  @RequestParam(value="access_token",required=false,defaultValue="") String access_token, @RequestParam(value="state",required=false,defaultValue="") String state, @RequestParam(value="token_type",required=false,defaultValue="") String token_type, @RequestParam(value="expires_in",required=false,defaultValue="") String expires_in) throws ParseException {
 
         System.out.println("call back 완료!");
-/*
+        System.out.println("access Token " + access_token);
+
         String ID, EMAIL;
         //네이버api로 부터 인증된 사용자 access_token로 user정보 가져옴
-        NaverUserDto user = loginServiceImpl.requestNaverUserAccessToken(authCode, state);
+        //NaverUserDto user = loginServiceImpl.requestNaverUserAccessToken(authCode, state);
+
+
+        NaverUserDto user = loginServiceImpl.requestNaverUserInfo(access_token);
+
         if(user == null){
             System.out.print("Error Handling 해주기");
             return; //error page로 리다이렉트 해줄것
@@ -160,7 +166,8 @@ access_token=AAAAPNussNF47LGu9ztdaTlk4wOYEBSeZEeIvod47PVOnVty_iyNSYlu6JYoJFzrcVT
 
             http.setAttribute("userSession",sessionDao); //클라이언트에게 세션 제공
         }
-        return;*/
+        return;
     }
+
 
 }
