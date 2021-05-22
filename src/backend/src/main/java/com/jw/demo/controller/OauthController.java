@@ -127,10 +127,12 @@ access_token=AAAAPNussNF47LGu9ztdaTlk4wOYEBSeZEeIvod47PVOnVty_iyNSYlu6JYoJFzrcVT
     //http://localhost:8080/login/oauth2/code/naver
     @GetMapping("/api/login/oauth2/code/naver")
     public void getNaverCallBack(HttpServletRequest http,  @RequestParam(value="access_token",required=false,defaultValue="") String access_token, @RequestParam(value="state",required=false,defaultValue="") String state, @RequestParam(value="token_type",required=false,defaultValue="") String token_type, @RequestParam(value="expires_in",required=false,defaultValue="") String expires_in) throws ParseException {
+        String urlss = http.getRequestURI();
 
         System.out.println("call back 완료!");
         System.out.println("access Token " + access_token);
         System.out.println("State " + state);
+        System.out.println("urlss " + urlss);
 
         String ID, EMAIL;
         //네이버api로 부터 인증된 사용자 access_token로 user정보 가져옴
