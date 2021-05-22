@@ -79,6 +79,8 @@ public class LoginServiceImpl implements LoginService {
     public StringBuffer requestUrlforUserInfo(String apiUrl, String access_Token) {
         StringBuffer ERROR = new StringBuffer();
 
+        System.out.println("requestUrlforUserInfo" + apiUrl);
+
         try {
             URL url = new URL(apiUrl);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();

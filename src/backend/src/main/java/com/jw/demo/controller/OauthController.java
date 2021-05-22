@@ -130,6 +130,7 @@ access_token=AAAAPNussNF47LGu9ztdaTlk4wOYEBSeZEeIvod47PVOnVty_iyNSYlu6JYoJFzrcVT
 
         System.out.println("call back 완료!");
         System.out.println("access Token " + access_token);
+        System.out.println("State " + state);
 
         String ID, EMAIL;
         //네이버api로 부터 인증된 사용자 access_token로 user정보 가져옴
