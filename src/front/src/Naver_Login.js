@@ -1,6 +1,7 @@
 
 import React, {useState, useEffect} from 'react';
 import {useLocation} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 const { naver } = window;
 
 
@@ -34,7 +35,7 @@ const Naver_Login = () => {
     console.log("NAver : ")
     const naverLogin = new naver.LoginWithNaverId({
      clientId: "zp_RzkEFiyL1qH8HNL_G",
-     callbackUrl: "http://118.67.132.184:8080/api/login/oauth2/code/naver",
+     callbackUrl: "http://118.67.132.184:8080/api/login/oauth2/code/naver/",
       isPopup: false,
       loginButton: {color: "green", type: 1, height: 30},
       callbackHandle: true
@@ -44,7 +45,13 @@ const Naver_Login = () => {
 
 
   return (
-    <div id='naverIdLogin' />
+
+    <Router>
+      <Switch>
+        <Route path = '/join' div id='naverIdLogin'/>
+        <div id='naverIdLogin' />
+      </Switch>
+    </Router>
   );
 }
 
