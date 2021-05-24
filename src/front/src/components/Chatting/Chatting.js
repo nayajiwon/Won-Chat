@@ -60,7 +60,7 @@ export const Chatting = () => {
         <div>
             <Chat>
                 <ChattingContainer>
-                    <ChattingBar>Won Chat</ChattingBar>                   
+                    <ChattingBar>Wonss Chat</ChattingBar>                   
 
                     <MessageSendingContainer>
                         <div style ={{clear:"both"}}>                    

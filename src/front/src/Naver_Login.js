@@ -35,23 +35,32 @@ const Naver_Login = () => {
     console.log("NAver : ")
     const naverLogin = new naver.LoginWithNaverId({
      clientId: "zp_RzkEFiyL1qH8HNL_G",
-     callbackUrl: "http://118.67.132.184:8080/api/login/oauth2/code/naver/",
-      isPopup: false,
+     callbackUrl: "http://49.50.160.107:80/api/login/oauth2/code/naver",
+      isPopup: true,
       loginButton: {color: "green", type: 1, height: 30},
       callbackHandle: true
     });
     naverLogin.init();
   }
-
+  /*
+  const Naver = () => {
+    //const naverLogin = new naver.LoginWithNaverId({
+    console.log("NAver : ")
+    const naverLogin = new naver.LoginWithNaverId({
+     clientId: "j0uDpBNjnJEH6jwlt3kn",
+     callbackUrl: "http://localhost:3000/api/login/oauth2/code/naver",
+      isPopup: true,
+      loginButton: {color: "green", type: 1, height: 30},
+      callbackHandle: true
+    });
+    naverLogin.init();
+  }
+*/
 
   return (
-
-    <Router>
-      <Switch>
-        <Route path = '/join' div id='naverIdLogin'/>
-        <div id='naverIdLogin' />
-      </Switch>
-    </Router>
+  
+    <div id='naverIdLogin' />
+      
   );
 }
 

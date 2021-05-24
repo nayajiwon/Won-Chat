@@ -5,6 +5,7 @@ import Navbar from './components/Navbar/Navbar.js';
 import Chatting from './components/Chatting/Chatting';
 import SignPage from './pages/SignPage.js';
 import JoinUsers from './pages/JoinUser.js';
+import NaverCallback from './pages/NaverCallback.js'
 
 function App() {
   return (
@@ -15,8 +16,9 @@ function App() {
         <Route exact path = '/' component = {Chatting}/>
         <Route path ='/login' component={SignPage}/>
         <Route path = '/join' component ={JoinUsers}/>
-      </Switch>
-    
+        <Route path = '/api/login/oauth2/code/naver' component ={NaverCallback}/>
+      
+      </Switch>   
     </Router>
   );
 }
