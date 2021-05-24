@@ -21,7 +21,7 @@ function NaverCallback() {
             console.log("위치" + location)
             console.log("토큰" + access_token)
             
-            const naver_url = "http://118.67.132.184:8080/api/login/oauth2/code/naver"
+            const naver_url = "http://49.50.160.107/login/naver"
             
             fetch(naver_url + "?access_token="+access_token)
         }
