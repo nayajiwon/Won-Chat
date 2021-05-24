@@ -35,8 +35,9 @@ const Naver_Login = () => {
     console.log("NAver : ")
     const naverLogin = new naver.LoginWithNaverId({
      clientId: "zp_RzkEFiyL1qH8HNL_G",
-     callbackUrl: "http://49.50.160.107:80/api/login/oauth2/code/naver",
-      isPopup: true,
+     //callbackUrl: "http://49.50.160.107:80/api/login/oauth2/code/naver",
+     callbackUrl : "http://49.50.160.107:80/login/naver", 
+     isPopup: true,
       loginButton: {color: "green", type: 1, height: 30},
       callbackHandle: true
     });
