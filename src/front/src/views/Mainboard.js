@@ -1,7 +1,7 @@
 /*global kakao*/
 
 import React from "react";
-import { Card, CardHeader, CardBody, Row, Col} from "reactstrap";
+import { Card, CardTitle, CardHeader, CardBody, Row, Col} from "reactstrap";
 
 var areas =require('../variables/location.js');
 const MapWrapper = () => {
@@ -24,31 +24,33 @@ for (var i = 0, len = areas.length; i < len; i++) {
 
 // 다각형을 생상하고 이벤트를 등록하는 함수입니다
 function displayArea(area) {
-
-    // 다각형을 생성합니다 
+    var path = [new kakao.maps.LatLng(41.98266027217556, 134.9278576660174),
+    new kakao.maps.LatLng(32.97029838823972, 131.32434210765993),
+    new kakao.maps.LatLng(35.01053233553783, 123.45813131563567),
+    new kakao.maps.LatLng(39.48570000085077, 122.05188134164251)]
+// 지도에 영역데이터를 폴리곤으로 표시합니다 
     var polygon = new kakao.maps.Polygon({
         map: map, // 다각형을 표시할 지도 객체
-        path: area.path,
+        path: path,
         strokeWeight: 0,
         strokeColor: '#004c80',
         strokeOpacity: 0.8,
         fillColor: '#fff',
         fillOpacity: 0.1
     });
+    // 다각형을 생성합니다 
+    
 
     // 다각형에 mouseover 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 변경합니다 
     // 지역명을 표시하는 커스텀오버레이를 지도위에 표시합니다
     kakao.maps.event.addListener(polygon, 'mouseover', function(mouseEvent) {
-        polygon.setOptions({fillColor: '#09f'});
-      // customOverlay.setContent( area.name);
+
+        customOverlay.setContent(' <h3>채팅방에 들어오세요.');
         customOverlay.setPosition(mouseEvent.latLng); 
         customOverlay.setMap(map);
     });
 
-    // 다각형에 mousemove 이벤트를 등록하고 이벤트가 발생하면 커스텀 오버레이의 위치를 변경합니다 
-    kakao.maps.event.addListener(polygon, 'mousemove', function(mouseEvent) {
-        customOverlay.setPosition(mouseEvent.latLng); 
-    });
+
 
     // 다각형에 mouseout 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 원래색으로 변경합니다
     // 커스텀 오버레이를 지도에서 제거합니다 
@@ -57,12 +59,9 @@ function displayArea(area) {
         customOverlay.setMap(null);
     }); 
 
-    // 다각형을 클릭하면 지도가 확대
+    // 다각을 클릭하면 지도가 확대
     kakao.maps.event.addListener(polygon, 'click', function(mouseEvent) {
-        map.setCenter(area.center);
-        map.setLevel(area.level);
-        polygon.setMap(null);
-        customOverlay.setMap(null);
+     
     });
     
 }
@@ -82,7 +81,10 @@ function Map() {
         <Row>
           <Col md="">
             <Card>
-              <CardHeader>채팅방 위치</CardHeader>
+            <CardHeader>
+                <CardTitle tag="h5">Welcome to our website</CardTitle>
+                <p className="card-category">Click the map!</p>
+              </CardHeader>
               <CardBody>
                 <div
                   id="map"

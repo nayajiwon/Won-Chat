@@ -5,9 +5,30 @@ import Typography from "views/Typography.js";
 import TableList from "views/Tables.js";
 import Maps from "views/Map.js";
 import UserPage from "views/User.js";
-import UpgradeToPro from "views/Upgrade.js";
-
+import Login from "views/Login.js";
+import Mainboard from "views/Mainboard";
 var routes = [
+  {
+    path: "/main",
+    name: "Main",
+    icon: "nc-icon nc-app",
+    component: Mainboard,
+    layout: "/admin"
+  },
+  {
+    path: "/maps",
+    name: "Maps",
+    icon: "nc-icon nc-pin-3",
+    component: Maps,
+    layout: "/admin"
+  },
+  {
+    path: "/login",
+    name: "Login",
+    icon: "nc-icon nc-single-02",
+    component: Login,
+    layuot: "/admin"
+  },
   {
     path: "/dashboard",
     name: "Dashboard",
@@ -20,13 +41,6 @@ var routes = [
     name: "Icons",
     icon: "nc-icon nc-diamond",
     component: Icons,
-    layout: "/admin",
-  },
-  {
-    path: "/maps",
-    name: "Maps",
-    icon: "nc-icon nc-pin-3",
-    component: Maps,
     layout: "/admin",
   },
   {
@@ -56,14 +70,7 @@ var routes = [
     icon: "nc-icon nc-caps-small",
     component: Typography,
     layout: "/admin",
-  },
-  {
-    pro: true,
-    path: "/upgrade",
-    name: "Upgrade to PRO",
-    icon: "nc-icon nc-spaceship",
-    component: UpgradeToPro,
-    layout: "/admin",
-  },
+  }
+
 ];
 export default routes;

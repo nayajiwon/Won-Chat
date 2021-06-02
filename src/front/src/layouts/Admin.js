@@ -49,8 +49,12 @@ function Dashboard(props) {
       
         <Switch>
           {routes.map((prop, key) => {
+            /* 왜 undefined 뜨는지 이해 못했음. undefined되면 adming으로 돌아오도록 함 */
+            if(prop.layout === undefined){
+              prop.layout = "/admin";
+            }
             return (
-              <Route
+              <Route 
                 path={prop.layout + prop.path}
                 component={prop.component}
                 key={key}
