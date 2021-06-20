@@ -3,7 +3,6 @@
 import React from "react";
 import { Card, CardTitle, CardHeader, CardBody, Row, Col} from "reactstrap";
 
-var areas =require('../variables/location.js');
 const MapWrapper = () => {
   const mapRef = React.useRef(null);
   React.useEffect(() => {
@@ -18,12 +17,10 @@ const MapWrapper = () => {
 var map = new kakao.maps.Map(mapContainer, mapOption),
     customOverlay = new kakao.maps.CustomOverlay({});
     // 지도에 영역데이터를 폴리곤으로 표시합니다 
-for (var i = 0, len = areas.length; i < len; i++) {
-    displayArea(areas[i]);
-}
+    displayArea();
 
 // 다각형을 생상하고 이벤트를 등록하는 함수입니다
-function displayArea(area) {
+function displayArea() {
     var path = [new kakao.maps.LatLng(41.98266027217556, 134.9278576660174),
     new kakao.maps.LatLng(32.97029838823972, 131.32434210765993),
     new kakao.maps.LatLng(35.01053233553783, 123.45813131563567),
@@ -42,10 +39,9 @@ function displayArea(area) {
     
 
     // 다각형에 mouseover 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 변경합니다 
-    // 지역명을 표시하는 커스텀오버레이를 지도위에 표시합니다
     kakao.maps.event.addListener(polygon, 'mouseover', function(mouseEvent) {
 
-        customOverlay.setContent(' <h3>채팅방에 들어오세요.');
+        customOverlay.setContent(' <h2>Where are you?');
         customOverlay.setPosition(mouseEvent.latLng); 
         customOverlay.setMap(map);
     });
@@ -59,9 +55,10 @@ function displayArea(area) {
         customOverlay.setMap(null);
     }); 
 
-    // 다각을 클릭하면 지도가 확대
+    // 지도 클릭 시 로그인 페이지로 이동
     kakao.maps.event.addListener(polygon, 'click', function(mouseEvent) {
-     
+      var link = 'Login';
+      window.location.href=link;
     });
     
 }
@@ -82,8 +79,8 @@ function Map() {
           <Col md="">
             <Card>
             <CardHeader>
-                <CardTitle tag="h5">Welcome to our website</CardTitle>
-                <p className="card-category">Click the map!</p>
+                <CardTitle tag="h5">Welcome to Won-Chat ! </CardTitle>
+                <p className="card-category">Click the map! </p>
               </CardHeader>
               <CardBody>
                 <div

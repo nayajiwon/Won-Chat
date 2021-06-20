@@ -7,6 +7,7 @@ import Maps from "views/Map.js";
 import UserPage from "views/User.js";
 import Login from "views/Login.js";
 import Mainboard from "views/Mainboard";
+import SignUp from "views/SignUp";
 var routes = [
   {
     path: "/main",
@@ -28,6 +29,12 @@ var routes = [
     icon: "nc-icon nc-single-02",
     component: Login,
     layuot: "/admin"
+  },
+  {
+    path:"/signup",
+    name: "SignUp",
+    component: SignUp,
+    layout: "/admin"
   },
   {
     path: "/dashboard",

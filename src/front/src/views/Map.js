@@ -3,7 +3,8 @@
 import React from "react";
 import { Card, CardHeader, CardBody, Row, Col} from "reactstrap";
 
-var areas =require('../variables/location.js');
+var areas =require('../variables/koreaArea.js');
+var mark = require('../variables/markArea.js');
 const MapWrapper = () => {
   const mapRef = React.useRef(null);
   React.useEffect(() => {
@@ -22,8 +23,8 @@ for (var i = 0, len = areas.length; i < len; i++) {
     displayArea(areas[i]);
 }
 
-// 다각형을 생상하고 이벤트를 등록하는 함수입니다
-function displayArea(area) {
+  // 다각형을 생상하고 이벤트를 등록하는 함수입니다
+  function displayArea(area) {
 
     // 다각형을 생성합니다 
     var polygon = new kakao.maps.Polygon({
@@ -63,11 +64,36 @@ function displayArea(area) {
         map.setLevel(area.level);
         polygon.setMap(null);
         customOverlay.setMap(null);
-    });
-    
-}
+      
+        makeCluster(area.name);
 
-  }, [])
+    });
+  }
+  function makeCluster(areaName){
+    var showMark;
+    var min_level = 7;
+    console.log(areaName);
+    for(var i =0, len = mark.length; i<len; i++){
+      if(mark[i].name === areaName){
+        showMark = mark[i].areas;
+        break;
+      }
+    }
+ 
+    var clusterer = new kakao.maps.MarkerClusterer({
+      map: map, // 마커들을 클러스터로 관리하고 표시할 지도 객체
+      averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정
+      minLevel: min_level, // 클러스터 할 최소 지도 레벨
+      disableClickZoom: true // 클러스터 마커를 클릭했을 때 지도가 확대되지 않도록 설정한다
+  });
+  var markers = {};
+  for(var j =0, area_len = showMark.length; j<area_len; j++){
+      markers[j] = new kakao.maps.Marker({position: showMark[j].position});
+  }
+
+  clusterer.addMarkers(markers);
+  }
+}, [])
     
 
   return (

@@ -66,6 +66,10 @@ function Login() {
           })
           .catch(err => console.log(err));
   }
+  const handleSignUp = (event)=>{
+    var link = 'SignUp';
+    window.location.href=link;
+  }
 
     return(
       <>
@@ -130,6 +134,7 @@ function Login() {
                         className="btn-round"
                         color="primary"
                         type="submit"
+                        onClick = {handleSignUp}
                       >
                         Sign Up
                       </Button>
