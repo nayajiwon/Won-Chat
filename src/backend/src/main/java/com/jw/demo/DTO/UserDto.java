@@ -8,30 +8,20 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor
+
 public class UserDto {
-    private Long userId;
+
     private String userName;
     private String password;
-    private String location;
-    private String phoneNumber;
-    private String oauth_from;
-    private String nickname;
     private String email;
-    private String id;
+    private int id;
 
     @Builder
-    public UserDto(String id, String userName, String password, String location, String phoneNumber, String oauth_from, String nickname, String email) {
+    public UserDto(int id,  String password, String email, String userName) {
         this.id = id;
-        this.userName = userName;
         this.password = password;
-        this.location = location;
-        this.phoneNumber = phoneNumber;
-        this.oauth_from = oauth_from;
-        this.nickname = nickname;
         this.email = email;
-
-        System.out.println("INSIDE dto builder -> userName" + userName);
+        this.userName = userName;
 
     }
 
@@ -42,12 +32,7 @@ public class UserDto {
         //user 생성자 채우기
         User user = User.builder()
                 .id(id)
-                .userName(userName)
                 .password(password)
-                .location(location)
-                .phoneNumber(phoneNumber)
-                .oauth_from(oauth_from)
-                .nickname(nickname)
                 .email(email)
                 .build();
 

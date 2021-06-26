@@ -31,13 +31,8 @@ public class UserDao implements UserDaoInterface {
             //dto클래스에 매핑
             user = users.get(i);
             userDto.builder()
-                    .userName(user.getUserName())
                     .password(user.getPassword())
-                    .location(user.getLocation())
-                    .phoneNumber(user.getPhoneNumber())
-                    .oauth_from(user.getOauth_from())
                     .email(user.getEmail())
-                    .nickname(user.getNickname())
                     .build();
 
             userDtoList.add(userDto);
@@ -47,29 +42,29 @@ public class UserDao implements UserDaoInterface {
     }
 
     //아이디를 이용해서 회원의 정보를 가져오는 쿼리
-    @Override
-    public UserDto getUserInfobyId(String id) {
-        User user = userRepository.findbyUserId(id);
-        if (user == null) { //회원이 아님
-            System.out.println("똑같은거 못찾음!! ");
-            return null;
-        }
+//    @Override
+//    public UserDto getUserInfobyId(String id) {
+//        User user = userRepository.findbyUserId(id);
+//        if (user == null) { //회원이 아님
+//            System.out.println("똑같은거 못찾음!! ");
+//            return null;
+//        }
+//
+//        UserDto loginUserDto = UserDto.builder()
+//                .id(user.getId())
+//                .build();
+//
+//        return loginUserDto;
+//    }
 
-        UserDto loginUserDto = UserDto.builder()
-                .id(user.getEmail())
-                .build();
-
-        return loginUserDto;
-    }
-
-    @Override
-    public void insertUser(String id, String email, String age) {
-        UserDto userDto = UserDto.builder()
-                .id(id)
-                .email(email)
-                .build();
-        userRepository.save(userDto.toEntity()); //db에 새로 회원가입 한 사람 정보 저장
-    }
+//    @Override
+//    public void insertUser(int id, String email, String age) {
+//        UserDto userDto = UserDto.builder()
+//                .id(id)
+//                .email(email)
+//                .build();
+//        userRepository.save(userDto.toEntity()); //db에 새로 회원가입 한 사람 정보 저장
+//    }
 
     /*로그인시 입력되는 email을 이용하여 회원인지 확인
     * Args : email(String) - 사용자가 입력한 email / input_pwd(String) - 사용자가 입력한 password
@@ -79,11 +74,10 @@ public class UserDao implements UserDaoInterface {
     public boolean isValidUser(String input_email, String input_pwd) {
         AtomicBoolean return_val = new AtomicBoolean(false);
         Optional<User> user = userRepository.findByUserEmail(input_email);
+
         user.ifPresent(avaUser -> {
             String avaUserpwd = avaUser.getPassword();
-
-            log.info(avaUserpwd);
-            //비밀번호 암호화
+            //비밀번호 암호화 필요
             if (avaUserpwd.equals(input_pwd)) {
                 return_val.set(true);
             }
