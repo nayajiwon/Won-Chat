@@ -16,8 +16,10 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
+import { render } from '@testing-library/react';
+import ReactDOM from "react-dom";
 import React, { useState } from 'react';
-
+import Map from "../views/Map";
 // reactstrap components
 import {
   Button,
@@ -36,6 +38,7 @@ import {
 function Login() {
   const[ email, setEmail] = useState('');
   const[ password, setPwd] = useState('');
+  const [userRole, setRole] = useState(false);
 
   const handleEmailChange = (event) =>{
       setEmail(event.target.value);
@@ -44,7 +47,9 @@ function Login() {
   const handlePWDChange = (event)=>{
       setPwd(event.target.value);
   }
-
+  const handleSignUp = (event)=>{
+    //회원가입 버튼 
+  }
   const handleLogin = (event)=>{
       if (email === "" || password === "") {
           alert("아이디 또는 비밀번호를 입력해주세요.");
@@ -54,21 +59,33 @@ function Login() {
       const data = {
           body: JSON.stringify({"email" : email, "password": password}),
           headers: {"Content-Type": "application/json"},
-          method: 'post'
+          method: 'post',
+       
       }
       fetch("/login", data)
           .then(res => {
               if(!res.ok) {
                   throw new Error(res.status);
               } else {
-                  return this.handleInitInfo();
+            
+                res.text().then((value)=>{
+
+                  if(value === "true"){
+                    setRole(true);
+                    console.log("Login Sucess.");
+                    ReactDOM.render(
+                      <Map />,
+                      document.getElementById('user')
+                    );
+                  }
+                  else{
+                    alert("로그인에 실패했습니다.");
+                  }
+                })
               }
           })
           .catch(err => console.log(err));
-  }
-  const handleSignUp = (event)=>{
-    var link = 'SignUp';
-    window.location.href=link;
+          
   }
 
     return(

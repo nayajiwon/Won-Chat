@@ -1,5 +1,4 @@
-import React from "react";
-import PerfectScrollbar from "perfect-scrollbar";
+import React, { useState } from "react";
 import { Route, Switch, useLocation } from "react-router-dom";
 
 import Footer from "../components/Footer/Footer.js";
@@ -7,26 +6,15 @@ import Sidebar from "../components/Sidebar/Sidebar.js";
 import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
 
 import routes from "routes.js";
-
-var ps;
+import Login from "../views/Login";
 
 function Dashboard(props) {
   const [backgroundColor, setBackgroundColor] = React.useState("black");
   const [activeColor, setActiveColor] = React.useState("info");
+  const [route, setRoute] = useState(routes[0]);
   const mainPanel = React.useRef();
   const location = useLocation();
-  React.useEffect(() => {
-    if (navigator.platform.indexOf("Win") > -1) {
-      ps = new PerfectScrollbar(mainPanel.current);
-      document.body.classList.toggle("perfect-scrollbar-on");
-    }
-    return function cleanup() {
-      if (navigator.platform.indexOf("Win") > -1) {
-        ps.destroy();
-        document.body.classList.toggle("perfect-scrollbar-on");
-      }
-    };
-  });
+
   React.useEffect(() => {
     mainPanel.current.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
@@ -37,19 +25,27 @@ function Dashboard(props) {
   const handleBgClick = (color) => {
     setBackgroundColor(color);
   };
+  const  makeUserPage = (props)=>{
+    if(props.path === "user"){
+      setRoute(routes[1]);
+    }
+    else{
+      setRoute(routes[0]);
+    }
+  }
   return (
     <div className="wrapper">
       <Sidebar
         {...props}
-        routes={routes}
+        routes={route}
         bgColor={backgroundColor}
         activeColor={activeColor}
       />
       <div className="main-panel" ref={mainPanel}>
       
         <Switch>
-          {routes.map((prop, key) => {
-            /* 왜 undefined 뜨는지 이해 못했음. undefined되면 adming으로 돌아오도록 함 */
+          {route.map((prop, key) => {
+            /* 왜 undefined 뜨는지 이해 못했음. undefined되면 admin으로 돌아오도록 함 */
             if(prop.layout === undefined){
               prop.layout = "/admin";
             }

@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle
 // 화면이 991px 미만일 때 스크린에서 괄호 안의 값을 실행해라 
 export const Container = styled.div
 `
-    z-index: 1; 
+   
     width: 100%;
     max-width: 1300px;
     margin-right: auto;

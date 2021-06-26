@@ -7,8 +7,8 @@ import Maps from "views/Map.js";
 import UserPage from "views/User.js";
 import Login from "views/Login.js";
 import Mainboard from "views/Mainboard";
-import SignUp from "views/SignUp";
-var routes = [
+
+var admin_routes = [
   {
     path: "/main",
     name: "Main",
@@ -16,25 +16,13 @@ var routes = [
     component: Mainboard,
     layout: "/admin"
   },
-  {
-    path: "/maps",
-    name: "Maps",
-    icon: "nc-icon nc-pin-3",
-    component: Maps,
-    layout: "/admin"
-  },
+ 
   {
     path: "/login",
     name: "Login",
     icon: "nc-icon nc-single-02",
     component: Login,
     layuot: "/admin"
-  },
-  {
-    path:"/signup",
-    name: "SignUp",
-    component: SignUp,
-    layout: "/admin"
   },
   {
     path: "/dashboard",
@@ -57,7 +45,17 @@ var routes = [
     component: Notifications,
     layout: "/admin",
   },
+  
+
+];
+var user_routes = [
   {
+    path: "/maps",
+    name: "Maps",
+    icon: "nc-icon nc-pin-3",
+    component: Maps,
+    layout: "/admin"
+  },{
     path: "/user-page",
     name: "User Profile",
     icon: "nc-icon nc-single-02",
@@ -78,6 +76,6 @@ var routes = [
     component: Typography,
     layout: "/admin",
   }
+]
 
-];
-export default routes;
+export default [admin_routes, user_routes];

@@ -72,7 +72,6 @@ for (var i = 0, len = areas.length; i < len; i++) {
   function makeCluster(areaName){
     var showMark;
     var min_level = 7;
-    console.log(areaName);
     for(var i =0, len = mark.length; i<len; i++){
       if(mark[i].name === areaName){
         showMark = mark[i].areas;
