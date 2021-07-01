@@ -6,7 +6,6 @@ import Sidebar from "../components/Sidebar/Sidebar.js";
 import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
 
 import routes from "routes.js";
-import Login from "../views/Login";
 
 function Dashboard(props) {
   const [backgroundColor, setBackgroundColor] = React.useState("black");
@@ -14,25 +13,31 @@ function Dashboard(props) {
   const [route, setRoute] = useState(routes[0]);
   const mainPanel = React.useRef();
   const location = useLocation();
-
+  const isLogined = false;
   React.useEffect(() => {
     mainPanel.current.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
   }, [location]);
+  React.useEffect(()=>{
+    console.log(props.match.path);
+    if(props.match.path === "/user" && isLogined === true){
+      setRoute(routes[1]);
+    }
+    else if(props.match.path === "/user" && isLogined === false){
+      window.location.href =  "/admin/main"
+       
+    }
+    else{
+      setRoute(routes[0]);
+    }
+  });
   const handleActiveClick = (color) => {
     setActiveColor(color);
   };
   const handleBgClick = (color) => {
     setBackgroundColor(color);
   };
-  const  makeUserPage = (props)=>{
-    if(props.path === "user"){
-      setRoute(routes[1]);
-    }
-    else{
-      setRoute(routes[0]);
-    }
-  }
+
   return (
     <div className="wrapper">
       <Sidebar
@@ -42,13 +47,8 @@ function Dashboard(props) {
         activeColor={activeColor}
       />
       <div className="main-panel" ref={mainPanel}>
-      
         <Switch>
           {route.map((prop, key) => {
-            /* 왜 undefined 뜨는지 이해 못했음. undefined되면 admin으로 돌아오도록 함 */
-            if(prop.layout === undefined){
-              prop.layout = "/admin";
-            }
             return (
               <Route 
                 path={prop.layout + prop.path}

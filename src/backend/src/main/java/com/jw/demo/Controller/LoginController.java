@@ -21,8 +21,12 @@ public class LoginController {
         String pwd = user.getPassword();
 
         if (userLoginService.checkAvailableUser(email,pwd)){
-            redisSevice.saveRedis(email);
-            return true;
+            if (redisSevice.saveRedis(email)) {
+                return true;
+            }
+            else{
+                log.info("redis failed");
+            }
         };
         return false;
 

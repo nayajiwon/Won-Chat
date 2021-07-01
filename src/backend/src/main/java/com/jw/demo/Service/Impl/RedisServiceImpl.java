@@ -23,24 +23,27 @@ public class RedisServiceImpl implements RedisService {
 
     @BeforeEach
     void setUp(){
-
         jwtManager = new JwtManager();
     }
 
 
-    public void saveRedis(String email) throws JSONException {
+    public boolean saveRedis(String email) throws JSONException {
 
         // redis에 set
         final RedisUserDto user =
                RedisUserDto.builder()
                         .userid(email)
                         .build();
-
-        final String token = jwtManager.generateJwtToken(user);
-        user.setUsertoken(token);
-        RedisUserDto saveUser = redisUserRepository.save(user);
-        redisUserRepository.save(saveUser);
-        log.info(token);
-
+        try {
+            final String token = jwtManager.generateJwtToken(user);
+            user.setUsertoken(token);
+            RedisUserDto saveUser = redisUserRepository.save(user);
+            redisUserRepository.save(saveUser);
+            return true;
+        }
+        catch(Exception e){
+            log.error(e.toString());
+        }
+        return false;
     }
 }
