@@ -16,8 +16,9 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React, { useState } from 'react';
 
+import React, { useState } from 'react';
+import NotificationAlert from "react-notification-alert";
 // reactstrap components
 import {
   Button,
@@ -27,15 +28,17 @@ import {
   CardFooter,
   CardTitle,
   FormGroup,
-  Form,
   Input,
   Row,
   Col,
 } from "reactstrap";
 
 function Login() {
+  const notificationAlert = React.useRef();
+ 
   const[ email, setEmail] = useState('');
   const[ password, setPwd] = useState('');
+  const [userRole, setRole] = useState(false);
 
   const handleEmailChange = (event) =>{
       setEmail(event.target.value);
@@ -44,35 +47,84 @@ function Login() {
   const handlePWDChange = (event)=>{
       setPwd(event.target.value);
   }
-
+  const handleSignUp = (event)=>{
+    //회원가입 버튼 
+  }
+  const alertMessage = (message_val)=>{
+    var type;
+    var options = {};
+    var place = "tc";
+    var message;
+    
+    if(message_val === 0){
+      message= 
+        <div>
+          아이디와 비밀번호를 입력해주세요. 
+        </div>
+      ;
+      type = "info";
+    }
+    else if (message_val === 1){
+      message = 
+      <div>
+        로그인에 실패했습니다.
+      </div> ;
+      type = "warning";
+    }
+    else if (message_val === 2){
+      message = 
+      <div>
+        로그인에 성공하셨습니다.
+      </div>;
+      type = "success";
+    }
+    options = {
+      place: place,
+      message: message,
+      type: type,
+      icon: "nc-icon nc-bell-55",
+      autoDismiss: 7,
+    };
+    notificationAlert.current.notificationAlert(options);
+      
+  }
   const handleLogin = (event)=>{
       if (email === "" || password === "") {
-          alert("아이디 또는 비밀번호를 입력해주세요.");
-          return;
+        alertMessage(0);
       }
-
-      const data = {
-          body: JSON.stringify({"email" : email, "password": password}),
-          headers: {"Content-Type": "application/json"},
-          method: 'post'
-      }
-      fetch("/login", data)
-          .then(res => {
-              if(!res.ok) {
-                  throw new Error(res.status);
-              } else {
-                  return this.handleInitInfo();
-              }
-          })
-          .catch(err => console.log(err));
-  }
-  const handleSignUp = (event)=>{
-    var link = 'SignUp';
-    window.location.href=link;
+      else {
+        const data = {
+            body: JSON.stringify({"email" : email, "password": password}),
+            headers: {"Content-Type": "application/json"},
+            method: 'post',
+        
+        }
+        
+        fetch("/login", data)
+            .then(res => {
+                if(!res.ok) {
+                    throw new Error(res.status);
+                } else {
+                  res.text().then((value)=>{
+                    if(value === "true"){
+                      alertMessage(2);
+                      setRole(true);
+                      window.location.href = "/user/maps";
+                    }
+                    else{
+                      alertMessage(1);
+                    }
+                  })
+                }
+            })
+            .catch(err => console.log(err));
+        }
+            
   }
 
     return(
       <>
+      <NotificationAlert ref={notificationAlert} />
       <div classN ame="content">
         <Row>
           <Col md="4">

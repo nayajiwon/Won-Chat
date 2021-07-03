@@ -40,8 +40,7 @@ function SignUp() {
                                 <Label for="phoneNumber">핸드폰번호</Label>
                                 <Input type="text" id="phoneNumber"></Input>
                             </FormGroup>
-                            <Button color="primary"
-                        type="submit" onClick="">가입하기</Button>
+                            <Button color="primary" type="submit" onClick="">가입하기</Button>
                         </Form>
                     </CardBody>
                 </Card>
