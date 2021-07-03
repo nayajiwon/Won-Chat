@@ -23,13 +23,15 @@ public class User{
     @GeneratedValue(strategy = GenerationType.IDENTITY) //auto increment
     private int id;
     private String userName;
-    private String password;
+    private String  password;
     private String email;
+    private String phoneNo;
     @Builder
-    public User( int id, String userName, String password, String email) {
+    public User(int id, String userName, String password, String email, String phoneNo) {
         this.id = id;
         this.userName = userName;
         this.password = password;
         this.email = email;
+        this.phoneNo = phoneNo;
     }
 }

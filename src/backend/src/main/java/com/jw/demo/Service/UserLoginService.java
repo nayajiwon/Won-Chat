@@ -3,6 +3,6 @@ package com.jw.demo.Service;
 
 public interface UserLoginService {
 
-    boolean checkAvailableUser(String email, String pwd) throws  Exception;
+    boolean checkAvailableUser(String email, String pwd) throws Exception;
 
 }
