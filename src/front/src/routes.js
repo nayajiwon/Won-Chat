@@ -6,6 +6,7 @@ import TableList from "views/Tables.js";
 import Maps from "views/Map.js";
 import UserPage from "views/User.js";
 import Login from "views/Login.js";
+import SignUp from "views/SignUp.js";
 import Mainboard from "views/Mainboard";
 
 var admin_routes = [
@@ -45,8 +46,13 @@ var admin_routes = [
     component: Notifications,
     layout: "/admin",
   },
-  
-
+  {
+    path: "/signup",
+    name: "Signup",
+    icon: "nc-icon nc-circle-10",
+    component : SignUp,
+    layout: "/admin"
+  }
 ];
 var user_routes = [
   {
