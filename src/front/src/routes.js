@@ -6,6 +6,9 @@ import TableList from "views/Tables.js";
 import Maps from "views/Map.js";
 import UserPage from "views/User.js";
 import Login from "views/Login.js";
+//<<<<<<< chatting_server
+import SignUp from "views/SignUp";
+import Chatting from "./components/Chatting/Chatting.js"
 import Mainboard from "views/Mainboard.js";
 import ChatList from "views/ChatList.js";
 var admin_routes = [
@@ -80,15 +83,16 @@ var user_routes = [
     name: "Typography",
     icon: "nc-icon nc-caps-small",
     component: Typography,
-    layout: "/user",
+    layout: "/admin",
   },
   {
-    path: "/dashboard",
-    name: "Dashboard",
-    icon: "nc-icon nc-bank",
-    component: Dashboard,
+    path: "/chatting",
+    name: "Chatting",
+    icon: "nc-icon nc-caps-small",
+    component: Chatting,
     layout: "/user",
   }
-]
+  
+];
 
 export default [admin_routes, user_routes];
