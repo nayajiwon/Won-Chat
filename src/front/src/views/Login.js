@@ -19,6 +19,7 @@
 
 import React, { useState } from 'react';
 import NotificationAlert from "react-notification-alert";
+import { Redirect } from 'react-router';
 // reactstrap components
 import {
   Button,
@@ -35,11 +36,9 @@ import {
 
 function Login() {
   const notificationAlert = React.useRef();
- 
   const[ email, setEmail] = useState('');
   const[ password, setPwd] = useState('');
   const [userRole, setRole] = useState(false);
-
   const handleEmailChange = (event) =>{
       setEmail(event.target.value);
   }
@@ -126,8 +125,8 @@ function Login() {
       <>
       <NotificationAlert ref={notificationAlert} />
       <div classN ame="content">
-        <Row>
-          <Col md="4">
+        <Row >
+          <Col md="6">
             <Card className="card-user">
               <CardHeader>
                 <CardTitle tag="h5">Login</CardTitle>

@@ -8,6 +8,7 @@ import UserPage from "views/User.js";
 import Login from "views/Login.js";
 import Mainboard from "views/Mainboard.js";
 import ChatList from "views/ChatList.js";
+import makeChat from "views/MakeChat.js";
 var admin_routes = [
   {
     path: "/main",
@@ -24,6 +25,7 @@ var admin_routes = [
     component: Login,
     layout: "/admin"
   },
+ 
   {
     path: "/icons",
     name: "Icons",
@@ -42,31 +44,32 @@ var admin_routes = [
 ];
 var user_routes = [
   {
-    path: "/main",
-    name: "Main",
-    icon: "nc-icon nc-app",
-    component: Mainboard,
-    layout: "/user"
-  },
-  {
     path: "/maps",
     name: "Maps",
     icon: "nc-icon nc-world-2",
     component: Maps,
     layout: "/user"
-  },{
-    path: "/user-page",
-    name: "User Profile",
-    icon: "nc-icon nc-single-02",
-    component: UserPage,
-    layout: "/user",
-  },
+  }, 
+  {
+    path: "/makeChat",
+    name: "Start Chatting",
+    icon: "nc-icon nc-user-run",
+    component: makeChat,
+    layout: "/user"
+  }, 
   {
     path: "/chatList",
     name: "Chat List",
     icon: "nc-icon nc-chat-33",
     component: ChatList,
     layout: "/user"
+  },
+  {
+    path: "/user-page",
+    name: "User Profile",
+    icon: "nc-icon nc-single-02",
+    component: UserPage,
+    layout: "/user",
   },
   {
     path: "/tables",

@@ -16,7 +16,8 @@ import {
 
 function SignUp() {
     return (
-        <> < div className = "content" > <Row>
+        <> < div className = "content" > 
+        <Row>
             <Col md="8">
                 <Card className="card-user">
                     <CardHeader>
