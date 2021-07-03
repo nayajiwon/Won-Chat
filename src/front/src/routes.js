@@ -8,6 +8,7 @@ import UserPage from "views/User.js";
 import Login from "views/Login.js";
 import Mainboard from "views/Mainboard";
 import SignUp from "views/SignUp";
+import Chatting from "./components/Chatting/Chatting.js"
 var routes = [
   {
     path: "/main",
@@ -77,7 +78,14 @@ var routes = [
     icon: "nc-icon nc-caps-small",
     component: Typography,
     layout: "/admin",
+  },
+  {
+    path: "/chatting",
+    name: "Chatting",
+    icon: "nc-icon nc-caps-small",
+    component: Chatting,
+    layout: "/admin",
   }
-
+  
 ];
 export default routes;

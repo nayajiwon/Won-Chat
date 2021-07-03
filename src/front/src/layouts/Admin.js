@@ -46,7 +46,6 @@ function Dashboard(props) {
         activeColor={activeColor}
       />
       <div className="main-panel" ref={mainPanel}>
-      
         <Switch>
           {routes.map((prop, key) => {
             /* 왜 undefined 뜨는지 이해 못했음. undefined되면 adming으로 돌아오도록 함 */
@@ -75,3 +74,4 @@ function Dashboard(props) {
 }
 
 export default Dashboard;
+

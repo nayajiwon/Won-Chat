@@ -48,6 +48,8 @@ import {
 } from './Message.elements'
 
 export const Chatting = () => {
+    console.log("***INSIDE CHATTING***")
+
     const [buttonclicked, setButtonclicked] = useState(0); 
     const [messageWritten, setMessageWritten] = useState(0);   
     
