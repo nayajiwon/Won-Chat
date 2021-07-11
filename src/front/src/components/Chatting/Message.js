@@ -1,33 +1,6 @@
-/*
-import React, {useState} from 'react';
 
-import {
-    ChattingContainer, 
-    Chat, 
-    ChattingBar, 
-    ChattingMessageContainer, 
-    ChattingMessageBar,
-    ChattingMessageButton
-} from './Chatting.elements';
-
-import {Message} from './Message';
-
-const Chatting = () => {
-    return (
-        <div>
-            <Chat>
-                <ChattingContainer >
-                    <ChattingBar>Won Chat</ChattingBar>
-                    <Message />
-                </ChattingContainer>
-            </Chat>
-        </div>
-    );
-}
-
-export default Chatting; 
-*/
 import React, { useState } from 'react'
+
 import {
     ChattingContainer, 
     Chat, 

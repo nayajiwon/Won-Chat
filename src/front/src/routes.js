@@ -34,11 +34,19 @@ var admin_routes = [
     component: Icons,
     layout: "/admin",
   },
+  
   {
     path: "/notifications",
     name: "Notifications",
-    icon: "nc-icon nc-bell-55",
+    icon: "nc-icon nc-caps-small",
     component: Notifications,
+    layout: "/admin",
+  },
+  {
+    path: "/chatting",
+    name: "Chatting",
+    icon: "nc-icon nc-bell-55",
+    component: Chatting,
     layout: "/admin",
   }
 
@@ -84,13 +92,6 @@ var user_routes = [
     icon: "nc-icon nc-caps-small",
     component: Typography,
     layout: "/admin",
-  },
-  {
-    path: "/chatting",
-    name: "Chatting",
-    icon: "nc-icon nc-caps-small",
-    component: Chatting,
-    layout: "/user",
   }
   
 ];
