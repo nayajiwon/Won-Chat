@@ -90,7 +90,7 @@ function Login() {
 
     return(
       <>
-      <div classN ame="content">
+      <div className="content">
         <Row>
           <Col md="4">
             <Card className="card-user">

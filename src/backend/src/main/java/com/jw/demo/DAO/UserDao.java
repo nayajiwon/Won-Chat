@@ -6,7 +6,6 @@ import com.jw.demo.Repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +14,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 @Repository
 @Slf4j
-public class UserDao implements UserDaoInterface {
+public class UserDao implements com.jw.demo.DAO.UserDaoInterface {
 
     @Autowired
     UserRepository userRepository;
@@ -33,6 +32,7 @@ public class UserDao implements UserDaoInterface {
             userDto.builder()
                     .password(user.getPassword())
                     .email(user.getEmail())
+                    .phoneNo(user.getPhoneNo())
                     .build();
 
             userDtoList.add(userDto);

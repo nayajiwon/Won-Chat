@@ -15,27 +15,28 @@ public class UserDto {
     private String password;
     private String email;
     private int id;
+    private String phoneNo;
 
     @Builder
-    public UserDto(int id,  String password, String email, String userName) {
-        this.id = id;
+    public UserDto(String userName, String password, String email, int id, String phoneNo) {
+        this.userName = userName;
         this.password = password;
         this.email = email;
-        this.userName = userName;
-
+        this.id = id;
+        this.phoneNo = phoneNo;
     }
 
     //User 클래스에서 생성자 위에 @Builder 를 선언해야 builder()를 사용할 수 있음.
     public User toEntity() {
-        System.out.println("INSIDE dto toEntity() -> userName" + userName);
+        System.out.println("INSIDE dto toEntity() -> userName: " + userName);
 
         //user 생성자 채우기
         User user = User.builder()
                 .id(id)
                 .password(password)
                 .email(email)
+                .phoneNo(phoneNo)
                 .build();
-
         return user;
     }
 }
