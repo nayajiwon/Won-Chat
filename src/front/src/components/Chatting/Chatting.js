@@ -1,40 +1,9 @@
-/*
-import React, {useState} from 'react';
-
-import {
-    ChattingContainer, 
-    Chat, 
-    ChattingBar, 
-    ChattingMessageContainer, 
-    ChattingMessageBar,
-    ChattingMessageButton
-} from './Chatting.elements';
-
-import {Message} from './Message';
-
-const Chatting = () => {
-    return (
-        <div>
-            <Chat>
-                <ChattingContainer >
-                    <ChattingBar>Won Chat</ChattingBar>
-                    <Message />
-                </ChattingContainer>
-            </Chat>
-        </div>
-    );
-}
-
-export default Chatting; 
-*/
 import React, { useState } from 'react'
+
 import {
     ChattingContainer, 
     Chat, 
     ChattingBar, 
-    ChattingMessageContainer, 
-    ChattingMessageBar,
-    ChattingMessageButton,
     MessageSendingContainer
 } from './Chatting.elements'
 
@@ -47,9 +16,11 @@ import {
     MessageBoxYou
 } from './Message.elements'
 
+import ChatUser from './ChatUser.js'
+
 export const Chatting = () => {
     console.log("***INSIDE CHATTING***")
-
+    const server_url = "http://localhost:8080/chatting"
     const [buttonclicked, setButtonclicked] = useState(0); 
     const [messageWritten, setMessageWritten] = useState(0);   
     
@@ -57,13 +28,14 @@ export const Chatting = () => {
  
     const [newMsg, setNewMsg] = useState([])
     console.log(newMsg)
- 
+
+
     return (
         <div>
+            <ChatUser></ChatUser>
             <Chat>
                 <ChattingContainer>
                     <ChattingBar>Won Chat</ChattingBar>                   
-
                     <MessageSendingContainer>
                         <div style ={{clear:"both"}}>                    
 
@@ -78,6 +50,5 @@ export const Chatting = () => {
             </Chat>
         </div>
     );
-
 };
 export default Chatting; 
