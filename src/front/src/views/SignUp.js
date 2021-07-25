@@ -36,7 +36,7 @@ function SignUp() {
         }
 
         const data = {
-            body: JSON.stringify({"id": id, "password": password, "phoneNo": phoneNo, "email": email, "userName": name}),
+            body: JSON.stringify({"userId": id, "password": password, "phoneNo": phoneNo, "email": email, "userName": name}),
             headers: {"Content-Type": "application/json"},
             method: 'post',
 
