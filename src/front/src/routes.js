@@ -5,10 +5,10 @@ import Typography from "views/Typography.js";
 import TableList from "views/Tables.js";
 import Maps from "views/Map.js";
 import UserPage from "views/User.js";
-import Login from "views/Login.js";
 import Mainboard from "views/Mainboard.js";
 import ChatList from "views/ChatList.js";
 import makeChat from "views/MakeChat.js";
+import Chat from "views/Chat.js";
 var admin_routes = [
   {
     path: "/main",
@@ -17,15 +17,6 @@ var admin_routes = [
     component: Mainboard,
     layout: "/admin"
   },
- 
-  {
-    path: "/login",
-    name: "Login",
-    icon: "nc-icon nc-single-02",
-    component: Login,
-    layout: "/admin"
-  },
- 
   {
     path: "/icons",
     name: "Icons",
@@ -91,6 +82,13 @@ var user_routes = [
     icon: "nc-icon nc-bank",
     component: Dashboard,
     layout: "/user",
+  },
+  {
+    path: '/chat',
+    name: Chat,
+    icon: "nc-icon nc-bank",
+    component: Chat,
+    layout: "/user"
   }
 ]
 

@@ -15,6 +15,7 @@ public class UserLoginServiceImpl implements UserLoginService {
 
     @Override
     public boolean checkAvailableUser(String input_id, String input_pwd) throws Exception {
+
         if (userDaoInterface.isValidUser(input_id, input_pwd)) {
             log.info(input_id + ": Login Success");
             return true;

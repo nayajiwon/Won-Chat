@@ -73,8 +73,8 @@ public class UserDao implements UserDaoInterface {
     @Override
     public boolean isValidUser(String input_email, String input_pwd) {
         AtomicBoolean return_val = new AtomicBoolean(false);
+        /*동일 아이디가 존재할경우 에러 발생 때문에 회원가입 할 때 아이디 중복 검사 필수*/
         Optional<User> user = userRepository.findByUserEmail(input_email);
-
         user.ifPresent(avaUser -> {
             String avaUserpwd = avaUser.getPassword();
             //비밀번호 암호화 필요
@@ -82,6 +82,7 @@ public class UserDao implements UserDaoInterface {
                 return_val.set(true);
             }
         });
+        log.info(return_val.toString());
         return return_val.get();
     }
 }

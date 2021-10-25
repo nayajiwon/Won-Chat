@@ -4,7 +4,7 @@ import Footer from "../components/Footer/Footer.js";
 import Sidebar from "../components/Sidebar/Sidebar.js";
 import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
 import routes from "routes.js";
-import login from "../views/Login.js"
+
 function Dashboard(props){
   
   const [backgroundColor, setBackgroundColor] = React.useState("black");
@@ -21,7 +21,6 @@ function Dashboard(props){
   
     if(props.match.path === "/user" ){
       setRoute(routes[1]);
-
     }
     else if(props.match.path === "/user"){
       window.location.href =  "/admin/main"

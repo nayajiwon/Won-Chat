@@ -92,6 +92,30 @@ function Tables() {
                       <td>Gloucester</td>
                       <td className="text-right">$98,615</td>
                     </tr>
+                     <tr>
+                      <td>Philip Chaney</td>
+                      <td>Korea, South</td>
+                      <td>Overland Park</td>
+                      <td className="text-right">$38,735</td>
+                    </tr>
+                    <tr>
+                      <td>Doris Greene</td>
+                      <td>Malawi</td>
+                      <td>Feldkirchen in Kärnten</td>
+                      <td className="text-right">$63,542</td>
+                    </tr>
+                    <tr>
+                      <td>Mason Porter</td>
+                      <td>Chile</td>
+                      <td>Gloucester</td>
+                      <td className="text-right">$78,615</td>
+                    </tr>
+                    <tr>
+                      <td>Jon Porter</td>
+                      <td>Portugal</td>
+                      <td>Gloucester</td>
+                      <td className="text-right">$98,615</td>
+                    </tr>
                   </tbody>
                 </Table>
               </CardBody>

@@ -1,19 +1,17 @@
 /*global kakao*/
 
-import { logDOM } from "@testing-library/dom";
 import React, {useState} from "react";
 import { Card, CardHeader, CardBody, Row, Col} from "reactstrap";
 import "../assets/css/modal-board.css";
-
-
 
 function MakeChat(){
 
   const [ modalOpen, setModalOpen ] = useState(false);
   const [ currLocation, setLocation] = useState("");
   const mapRef = React.useRef(null);
+
   const MapWrapper = () => {
-    var map;
+    var map;    
     const searchAddrFromCoords = (coord) =>{
       let geocoder = new kakao.maps.services.Geocoder();
       var region_1, region_2, return_region= '' ;
@@ -64,7 +62,10 @@ function MakeChat(){
       setModalOpen(false);
   }
   const moveChatList = () =>{
-    window.location.href = "/user/maps"
+    window.location.href = "/user/chatList"
+  }
+  const moveChat = () =>{
+    window.location.href = "/user/chat"
   }
   const Modal = ( props ) => {
     // 열기, 닫기, 모달 헤더 텍스트를 부모로부터 받아옴
@@ -80,16 +81,19 @@ function MakeChat(){
                         <button className="close" onClick={close}> &times; </button>
                     </header>
                     <main>
-                      <div>
-                         {currLocation}에 채팅방을 생성합니다.
-                        </div>
-                        <div>채팅방 이름 : <input></input></div>
-                        <div>닉네임 : <input></input></div>
-                        
+                    <div>
+                      <p>채팅방 이름</p>
+                      <input type="text" id="chat_name" placeholder="chatting room name" autocomplete="off"/>
+                    </div>
+                   
+                    <div>
+                      <p>닉네임</p>
+                      <input type="text" id="nick_name" placeholder="Nick Name" autocomplete="off"/>
+                    </div>
                     </main>
                     <footer>
-                        <button className="close" onClick={moveChatList}> 생성 취소 </button>
-                        <button className="make" onClick={close}> 채팅방 생성 </button>
+                        <button className="btn btn-primary" onClick={moveChat}> 채팅방 생성 </button>
+                        <button className="close"  onClick={moveChatList}> 생성 취소 </button>
                     </footer>
                 </section>
             ) : null }
@@ -116,7 +120,7 @@ function MakeChat(){
             </Col>
           </Row>
         </div>
-        <Modal open={modalOpen} close={closeModal}header="채팅방 생성"/>
+        <Modal open={modalOpen} close={closeModal} header= {currLocation + "에 채팅방을 생성합니다."} />
       </>
     );
 }
